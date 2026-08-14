@@ -453,7 +453,7 @@
                     <input type="checkbox" id="coze-skip-duplicates" ${CONFIG.skipDuplicates ? 'checked' : ''}>
                     <label for="coze-skip-duplicates">跳过同名工作流</label>
                 </div>
-                <input type="file" id="coze-file-input" webkitdirectory multiple accept=".json" style="display:none">
+                <input type="file" id="coze-file-input" webkitdirectory multiple accept=".json,.zip" style="display:none">
                 <button class="btn btn-primary" id="coze-select-btn">选择工作流文件</button>
                 <button class="btn btn-primary" id="coze-start-btn" disabled>开始导入</button>
                 <button class="btn btn-danger" id="coze-stop-btn" disabled>停止</button>
@@ -476,7 +476,7 @@
             let selectedFiles = Array.from(e.target.files);
             
             // 如果选择了文件夹，过滤出 JSON 文件
-            files = selectedFiles.filter(f => f.name.endsWith('.json'));
+            files = selectedFiles.filter(f => f.name.endsWith('.json') || f.name.endsWith('.zip'));
             
             if (files.length > 0) {
                 document.getElementById('coze-start-btn').disabled = false;
