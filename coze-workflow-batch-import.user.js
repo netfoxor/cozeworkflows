@@ -331,46 +331,26 @@
             dataTransfer.items.add(file);
             fileInput.files = dataTransfer.files;
             fileInput.dispatchEvent(new Event('change', { bubbles: true }));
-            await sleep(CONFIG.waitTime);
-
-            // 步骤4: 点击确认导入
-            log('步骤4: 查找确认按钮');
-            // 等待一下让页面处理文件
-            await sleep(1000);
             
-            const confirmBtn = findButton('导入') || findButton('确认') || findButton('确认导入');
-            if (!confirmBtn) {
-                throw new Error('找不到确认导入按钮');
-            }
-            
-            // 确保不是同一个按钮（避免重复点击）
-            if (confirmBtn !== importBtn) {
-                confirmBtn.click();
-            } else {
-                // 如果找到的是同一个按钮，尝试找其他按钮
-                const allBtns = Array.from(document.querySelectorAll('button'));
-                const otherBtn = allBtns.find(b => b !== importBtn && (b.textContent.includes('导入') || b.textContent.includes('确认')));
-                if (otherBtn) {
-                    otherBtn.click();
-                } else {
-                    throw new Error('无法找到确认按钮');
-                }
-            }
-
-            // 步骤5: 等待导入完成
-            log('步骤5: 等待导入完成');
+            // 步骤4: 等待导入完成（Coze 上传后自动导入，无需手动确认）
+            log('步骤4: 等待导入完成');
             await sleep(CONFIG.importInterval);
 
-            // 检查是否成功（尝试检测成功提示）
-            const successIndicator = document.querySelector('[class*="success"], [class*="toast"]');
-            if (successIndicator) {
-                // 记录到已存在列表
-                existingWorkflows.add(workflowName);
-            }
-
+            // 检查弹窗是否还存在（如果关闭说明导入完成）
+            const dialogStillOpen = document.querySelector('[class*="modal"], [class*="dialog"]');
+            
+            // 记录到已存在列表
+            existingWorkflows.add(workflowName);
             addLog(`✓ 导入成功: ${file.name}`, 'success');
             currentIndex++;
             updateProgress();
+
+            // 如果弹窗还开着，尝试关闭它
+            if (dialogStillOpen) {
+                const closeBtn = dialogStillOpen.querySelector('[class*="close"], [aria-label="Close"], button:last-child');
+                if (closeBtn) closeBtn.click();
+                await sleep(500);
+            }
 
             // 继续下一个
             await sleep(500);
