@@ -188,26 +188,85 @@
     async function fetchExistingWorkflows() {
         log('开始获取已存在的工作流列表...');
         
-        // 方法1: 尝试从页面 DOM 获取
+        // 方法1: 滚动页面加载所有工作流，然后从 DOM 获取
         try {
-            const items = document.querySelectorAll('[class*="workflow-item"], [class*="resource-item"], [data-testid*="workflow"]');
-            items.forEach(item => {
-                const nameEl = item.querySelector('[class*="name"], [class*="title"], h3, h4');
-                if (nameEl) {
-                    existingWorkflows.add(nameEl.textContent.trim());
+            // 先滚动页面到底部，触发懒加载
+            log('滚动页面加载所有工作流...');
+            const scrollContainer = document.querySelector('[class*="scroll"], [class*="list"], main') || document.documentElement;
+            let lastHeight = scrollContainer.scrollHeight;
+            let scrollAttempts = 0;
+            const maxScrollAttempts = 10;
+            
+            while (scrollAttempts < maxScrollAttempts) {
+                scrollContainer.scrollTop = scrollContainer.scrollHeight;
+                await sleep(1000);
+                
+                const newHeight = scrollContainer.scrollHeight;
+                if (newHeight === lastHeight) {
+                    break; // 没有更多内容了
                 }
-            });
+                lastHeight = newHeight;
+                scrollAttempts++;
+            }
+            
+            // 现在获取所有工作流名称
+            // 尝试多种选择器
+            const selectors = [
+                '[class*="workflow-item"] [class*="name"]',
+                '[class*="workflow-item"] [class*="title"]',
+                '[class*="resource-item"] [class*="name"]',
+                '[class*="resource-item"] [class*="title"]',
+                '[data-testid*="workflow"] [class*="name"]',
+                '[class*="card"] [class*="name"]',
+                '[class*="card"] [class*="title"]',
+                '[class*="item"] h3',
+                '[class*="item"] h4',
+                '[class*="item"] [class*="text"]',
+            ];
+            
+            for (const selector of selectors) {
+                const elements = document.querySelectorAll(selector);
+                if (elements.length > 0) {
+                    elements.forEach(el => {
+                        const name = el.textContent.trim();
+                        if (name) {
+                            existingWorkflows.add(name);
+                        }
+                    });
+                    log(`从选择器 "${selector}" 获取到 ${elements.length} 个工作流`);
+                }
+            }
+            
+            // 如果上面的选择器都没找到，尝试更通用的方法
+            if (existingWorkflows.size === 0) {
+                log('尝试通用方法获取工作流名称...');
+                // 查找所有包含"工作流"文本的行的前一个元素（通常是名称）
+                const allText = document.querySelectorAll('*');
+                allText.forEach(el => {
+                    if (el.textContent.trim() === '工作流' && el.children.length === 0) {
+                        // 找到父级中的名称元素
+                        const parent = el.closest('[class*="item"], [class*="row"], tr');
+                        if (parent) {
+                            const nameEl = parent.querySelector('[class*="name"], [class*="title"], h3, h4, span');
+                            if (nameEl && nameEl.textContent.trim()) {
+                                existingWorkflows.add(nameEl.textContent.trim());
+                            }
+                        }
+                    }
+                });
+            }
+            
             if (existingWorkflows.size > 0) {
-                log(`从页面获取到 ${existingWorkflows.size} 个工作流`);
+                log(`共获取到 ${existingWorkflows.size} 个已存在的工作流`);
+                log(`工作流名称: ${Array.from(existingWorkflows).join(', ')}`);
                 return;
             }
         } catch (e) {
             log('从 DOM 获取失败:', e.message);
         }
 
-        // 方法2: 尝试通过 API 获取（需要用户配置 token）
-        // 这里暂时跳过，因为需要 workspace_id 和 access_token
-        log('提示: 如需精确检测同名，请在 Coze 资源库页面滚动加载所有工作流后再开始导入');
+        // 方法2: 尝试从网络请求中获取（监听 XHR）
+        log('提示: 如需精确检测同名，请确保已滚动加载所有工作流');
     }
 
     // 检查工作流是否已存在
@@ -406,11 +465,19 @@
         };
 
         document.getElementById('coze-file-input').onchange = (e) => {
-            files = Array.from(e.target.files).filter(f => f.name.endsWith('.json'));
+            // 支持文件夹选择和多个文件选择
+            let selectedFiles = Array.from(e.target.files);
+            
+            // 如果选择了文件夹，过滤出 JSON 文件
+            files = selectedFiles.filter(f => f.name.endsWith('.json'));
+            
             if (files.length > 0) {
                 document.getElementById('coze-start-btn').disabled = false;
                 document.getElementById('coze-status').textContent = `已选择 ${files.length} 个文件`;
                 addLog(`已选择 ${files.length} 个工作流文件`, 'info');
+                log(`文件列表: ${files.map(f => f.name).join(', ')}`);
+            } else {
+                addLog('未找到 JSON 文件', 'error');
             }
         };
 
