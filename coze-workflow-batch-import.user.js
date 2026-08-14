@@ -210,18 +210,19 @@
             }
             
             // 现在获取所有工作流名称
-            // 尝试多种选择器
+            // 尝试多种选择器，排除导航菜单
             const selectors = [
-                '[class*="workflow-item"] [class*="name"]',
-                '[class*="workflow-item"] [class*="title"]',
+                // 资源库列表项中的名称
                 '[class*="resource-item"] [class*="name"]',
                 '[class*="resource-item"] [class*="title"]',
-                '[data-testid*="workflow"] [class*="name"]',
-                '[class*="card"] [class*="name"]',
-                '[class*="card"] [class*="title"]',
-                '[class*="item"] h3',
-                '[class*="item"] h4',
-                '[class*="item"] [class*="text"]',
+                '[class*="workflow-item"] [class*="name"]',
+                '[class*="workflow-item"] [class*="title"]',
+                // 表格行中的名称
+                'tr [class*="name"]',
+                'tr [class*="title"]',
+                // 卡片中的名称
+                '[class*="card"] [class*="name"]:not([class*="nav"])',
+                '[class*="card"] [class*="title"]:not([class*="nav"])',
             ];
             
             for (const selector of selectors) {
@@ -242,6 +243,8 @@
                 log('尝试通用方法获取工作流名称...');
                 // 查找所有包含"工作流"文本的行的前一个元素（通常是名称）
                 const allText = document.querySelectorAll('*');
+                const navItems = ['扣子', '个人空间', '主页', '项目开发', '资源库', '任务中心', '效果评测', '空间配置', '模板商店', '插件商店', '作品社区', 'API 管理', '文档中心', '通用管理', '总积分', '下次续费'];
+                
                 allText.forEach(el => {
                     if (el.textContent.trim() === '工作流' && el.children.length === 0) {
                         // 找到父级中的名称元素
@@ -249,7 +252,11 @@
                         if (parent) {
                             const nameEl = parent.querySelector('[class*="name"], [class*="title"], h3, h4, span');
                             if (nameEl && nameEl.textContent.trim()) {
-                                existingWorkflows.add(nameEl.textContent.trim());
+                                const name = nameEl.textContent.trim();
+                                // 排除导航菜单项
+                                if (!navItems.some(nav => name.includes(nav))) {
+                                    existingWorkflows.add(name);
+                                }
                             }
                         }
                     }
@@ -377,9 +384,9 @@
             importBtn.click();
             await sleep(CONFIG.waitTime);
 
-            // 步骤2: 等待文件输入框出现
+            // 步骤2: 等待文件输入框出现（排除脚本自己创建的文件输入框）
             log('步骤2: 等待文件输入框');
-            const fileInput = await waitForElement('input[type="file"]', 5000);
+            const fileInput = await waitForElement('input[type="file"]:not(#coze-file-input)', 5000);
             if (!fileInput) {
                 throw new Error('找不到文件输入框');
             }
