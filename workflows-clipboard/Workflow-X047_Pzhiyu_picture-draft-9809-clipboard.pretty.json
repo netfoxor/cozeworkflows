@@ -1,0 +1,2135 @@
+{
+  "type": "coze-workflow-clipboard-data",
+  "source": {
+    "workflowId": "",
+    "flowMode": 0,
+    "spaceId": "",
+    "isDouyin": false,
+    "host": "www.coze.cn"
+  },
+  "json": {
+    "nodes": [
+      {
+        "blocks": [],
+        "data": {
+          "nodeMeta": {
+            "description": "工作流的起始节点，用于设定启动工作流需要的信息",
+            "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Start-v2.jpg",
+            "subTitle": "",
+            "title": "开始"
+          },
+          "outputs": [
+            {
+              "description": "主题",
+              "name": "input",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "description": "速推agic的apikey 申请地址 https://www.51aigc.cc/#/home?user_id=20547referralCode=REF37303435 ",
+              "name": "apikey",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "trigger_parameters": []
+        },
+        "edges": null,
+        "id": "100001",
+        "meta": {
+          "canvasPosition": {
+            "x": 0,
+            "y": 0
+          },
+          "defaultCollapsed": false,
+          "position": {
+            "x": -866.8247538897333,
+            "y": 328.92922922891296
+          }
+        },
+        "type": "1",
+        "_temp": {
+          "bounds": {
+            "x": -1046.8247538897333,
+            "y": 328.92922922891296,
+            "width": 360,
+            "height": 112
+          }
+        }
+      },
+      {
+        "blocks": [],
+        "data": {
+          "inputs": {
+            "content": {
+              "type": "string",
+              "value": {
+                "content": "## 🎉 <span style=\"color: #FF5733;\">视频已整理完成</span> \n### 你好以下是部分内容\n\n{{output}}\n\n喜欢这个智能体，请点击右上角⭐️收藏",
+                "type": "literal"
+              }
+            },
+            "inputParameters": [
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": {
+                      "blockID": "132975",
+                      "name": "out_url",
+                      "source": "block-output"
+                    },
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "ref"
+                  }
+                },
+                "name": "output"
+              }
+            ],
+            "streamingOutput": false,
+            "terminatePlan": "useAnswerContent"
+          },
+          "nodeMeta": {
+            "description": "工作流的最终节点，用于返回工作流运行后的结果信息",
+            "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-End-v2.jpg",
+            "subTitle": "",
+            "title": "结束"
+          }
+        },
+        "edges": null,
+        "id": "900001",
+        "meta": {
+          "canvasPosition": {
+            "x": 0,
+            "y": 0
+          },
+          "defaultCollapsed": false,
+          "position": {
+            "x": 1808.9606024083594,
+            "y": 289.92922922891296
+          }
+        },
+        "type": "2",
+        "_temp": {
+          "bounds": {
+            "x": 1628.9606024083594,
+            "y": 289.92922922891296,
+            "width": 360,
+            "height": 112
+          }
+        }
+      },
+      {
+        "blocks": [
+          {
+            "blocks": [],
+            "data": {
+              "inputs": {
+                "inputParameters": [
+                  {
+                    "input": {
+                      "type": "string",
+                      "value": {
+                        "content": {
+                          "blockID": "115829",
+                          "name": "input",
+                          "source": "block-output"
+                        },
+                        "rawMeta": {
+                          "type": 1
+                        },
+                        "type": "ref"
+                      }
+                    },
+                    "name": "image"
+                  },
+                  {
+                    "input": {
+                      "type": "string",
+                      "value": {
+                        "content": {
+                          "blockID": "849520",
+                          "name": "output",
+                          "source": "block-output"
+                        },
+                        "rawMeta": {
+                          "type": 1
+                        },
+                        "type": "ref"
+                      }
+                    },
+                    "name": "input"
+                  }
+                ],
+                "modelSetting": {
+                  "custom_ratio": {
+                    "height": 1024,
+                    "width": 576
+                  },
+                  "ddim_steps": 30,
+                  "model": 8
+                },
+                "prompt": {
+                  "negative_prompt": "",
+                  "prompt": "{{input}}双手举着有“{{image}}”的可爱的大大的手写字体内容纸要大，中文，字体清晰，字和纸要占画面的主体，字是正楷字，画面有着可爱温馨的卡通风格，宫崎骏画风，彩铅手绘。"
+                },
+                "references": [],
+                "settingOnError": {
+                  "processType": 1,
+                  "retryTimes": 0,
+                  "timeoutMs": 60000
+                }
+              },
+              "nodeMeta": {
+                "description": "通过文字描述/添加参考图生成图片",
+                "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-ImageGeneration-v2.jpg",
+                "mainColor": "#FF4DC3",
+                "subTitle": "图像生成",
+                "title": "图像生成"
+              },
+              "outputs": [
+                {
+                  "assistType": 2,
+                  "name": "data",
+                  "type": "string"
+                },
+                {
+                  "name": "msg",
+                  "type": "string"
+                }
+              ]
+            },
+            "edges": null,
+            "id": "09488",
+            "meta": {
+              "canvasPosition": {
+                "x": 0,
+                "y": 0
+              },
+              "defaultCollapsed": false,
+              "position": {
+                "x": 412.6251592473319,
+                "y": 19.176989251659847
+              }
+            },
+            "type": "16"
+          },
+          {
+            "blocks": [],
+            "data": {
+              "inputs": {
+                "apiParam": [
+                  {
+                    "input": {
+                      "type": "string",
+                      "value": {
+                        "content": "7426655854067367946",
+                        "rawMeta": {
+                          "type": 1
+                        },
+                        "type": "literal"
+                      }
+                    },
+                    "name": "apiID"
+                  },
+                  {
+                    "input": {
+                      "type": "string",
+                      "value": {
+                        "content": "speech_synthesis",
+                        "rawMeta": {
+                          "type": 1
+                        },
+                        "type": "literal"
+                      }
+                    },
+                    "name": "apiName"
+                  },
+                  {
+                    "input": {
+                      "type": "string",
+                      "value": {
+                        "content": "7426655854067351562",
+                        "rawMeta": {
+                          "type": 1
+                        },
+                        "type": "literal"
+                      }
+                    },
+                    "name": "pluginID"
+                  },
+                  {
+                    "input": {
+                      "type": "string",
+                      "value": {
+                        "content": "语音合成",
+                        "rawMeta": {
+                          "type": 1
+                        },
+                        "type": "literal"
+                      }
+                    },
+                    "name": "pluginName"
+                  },
+                  {
+                    "input": {
+                      "type": "string",
+                      "value": {
+                        "content": "",
+                        "rawMeta": {
+                          "type": 1
+                        },
+                        "type": "literal"
+                      }
+                    },
+                    "name": "pluginVersion"
+                  },
+                  {
+                    "input": {
+                      "type": "string",
+                      "value": {
+                        "content": "",
+                        "rawMeta": {
+                          "type": 1
+                        },
+                        "type": "literal"
+                      }
+                    },
+                    "name": "tips"
+                  },
+                  {
+                    "input": {
+                      "type": "string",
+                      "value": {
+                        "content": "",
+                        "rawMeta": {
+                          "type": 1
+                        },
+                        "type": "literal"
+                      }
+                    },
+                    "name": "outDocLink"
+                  }
+                ],
+                "inputDefs": [
+                  {
+                    "defaultValue": 1,
+                    "description": "语速，范围是[0.2,3]，默认为1，通常保留一位小数即可, default value is 1",
+                    "input": {},
+                    "name": "speed_ratio",
+                    "required": false,
+                    "type": "float"
+                  },
+                  {
+                    "description": "要合成音频的文本内容",
+                    "input": {},
+                    "name": "text",
+                    "required": true,
+                    "type": "string"
+                  },
+                  {
+                    "assistType": 12,
+                    "description": "voice id",
+                    "input": {},
+                    "name": "voice_id",
+                    "required": false,
+                    "type": "string"
+                  },
+                  {
+                    "description": "语音语种，非必填，参考 https://bytedance.larkoffice.com/docx/WdDOdiB1BoRyBNxlkXWcn0n3nLc",
+                    "input": {},
+                    "name": "language",
+                    "required": false,
+                    "type": "string"
+                  },
+                  {
+                    "defaultValue": "爽快思思/Skye",
+                    "description": "音色ID，默认为爽快思思/Skye。详细音色列表参考 https://bytedance.larkoffice.com/docx/WdDOdiB1BoRyBNxlkXWcn0n3nLc, default value is 爽快思思/Skye",
+                    "input": {},
+                    "name": "speaker_id",
+                    "required": false,
+                    "type": "string"
+                  }
+                ],
+                "inputParameters": [
+                  {
+                    "input": {
+                      "type": "string",
+                      "value": {
+                        "content": {
+                          "blockID": "115829",
+                          "name": "input",
+                          "source": "block-output"
+                        },
+                        "rawMeta": {
+                          "type": 1
+                        },
+                        "type": "ref"
+                      }
+                    },
+                    "name": "text"
+                  },
+                  {
+                    "input": {
+                      "type": "float",
+                      "value": {
+                        "content": 1,
+                        "rawMeta": {
+                          "type": 4
+                        },
+                        "type": "literal"
+                      }
+                    },
+                    "name": "speed_ratio"
+                  },
+                  {
+                    "input": {
+                      "assistType": 12,
+                      "type": "string",
+                      "value": {
+                        "content": "7426720361733177353",
+                        "rawMeta": {
+                          "fileName": "渊博小叔",
+                          "type": 18
+                        },
+                        "type": "literal"
+                      }
+                    },
+                    "name": "voice_id"
+                  }
+                ],
+                "settingOnError": {
+                  "processType": 1,
+                  "retryTimes": 0,
+                  "timeoutMs": 180000
+                }
+              },
+              "nodeMeta": {
+                "description": "根据音色和文本合成音频",
+                "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Plugin-v2.jpg",
+                "subtitle": "语音合成:speech_synthesis",
+                "title": "配音"
+              },
+              "outputs": [
+                {
+                  "name": "msg",
+                  "required": false,
+                  "type": "string"
+                },
+                {
+                  "name": "code",
+                  "required": false,
+                  "type": "float"
+                },
+                {
+                  "name": "data",
+                  "required": false,
+                  "schema": [
+                    {
+                      "name": "link",
+                      "required": false,
+                      "type": "string"
+                    }
+                  ],
+                  "type": "object"
+                },
+                {
+                  "name": "log_id",
+                  "required": false,
+                  "type": "string"
+                }
+              ]
+            },
+            "edges": null,
+            "id": "811094",
+            "meta": {
+              "canvasPosition": {
+                "x": 0,
+                "y": 0
+              },
+              "defaultCollapsed": false,
+              "position": {
+                "x": -58.851375570630886,
+                "y": 280.71911667707815
+              }
+            },
+            "type": "4"
+          },
+          {
+            "blocks": [],
+            "data": {
+              "inputs": {
+                "concatParams": [
+                  {
+                    "input": {
+                      "type": "string",
+                      "value": {
+                        "content": "一位老爷爷，表情温和且亲切，，戴着一副大大的眼镜，表情看起来比较憨厚且带着一丝微笑，眼神温和。他留着短发，穿着蓝色的上衣和绿色的裤子，肩上似乎还背着背带。他的白发整齐地藏在帽子下，脸上带着平和的微笑，双手在胸前举着大纸，正对着屏幕。",
+                        "rawMeta": {
+                          "type": 1
+                        },
+                        "type": "literal"
+                      }
+                    },
+                    "name": "concatResult"
+                  },
+                  {
+                    "input": {
+                      "type": "string",
+                      "value": {
+                        "content": "，",
+                        "rawMeta": {
+                          "type": 1
+                        },
+                        "type": "literal"
+                      }
+                    },
+                    "name": "arrayItemConcatChar"
+                  },
+                  {
+                    "input": {
+                      "schema": {
+                        "schema": [
+                          {
+                            "name": "label",
+                            "required": true,
+                            "type": "string"
+                          },
+                          {
+                            "name": "value",
+                            "required": true,
+                            "type": "string"
+                          },
+                          {
+                            "name": "isDefault",
+                            "required": true,
+                            "type": "boolean"
+                          }
+                        ],
+                        "type": "object"
+                      },
+                      "type": "list",
+                      "value": {
+                        "content": [
+                          {
+                            "isDefault": true,
+                            "label": "换行",
+                            "value": "\n"
+                          },
+                          {
+                            "isDefault": true,
+                            "label": "制表符",
+                            "value": "\t"
+                          },
+                          {
+                            "isDefault": true,
+                            "label": "句号",
+                            "value": "。"
+                          },
+                          {
+                            "isDefault": true,
+                            "label": "逗号",
+                            "value": "，"
+                          },
+                          {
+                            "isDefault": true,
+                            "label": "分号",
+                            "value": "；"
+                          },
+                          {
+                            "isDefault": true,
+                            "label": "空格",
+                            "value": " "
+                          }
+                        ],
+                        "type": "literal"
+                      }
+                    },
+                    "name": "allArrayItemConcatChars"
+                  }
+                ],
+                "inputParameters": [
+                  {
+                    "input": {
+                      "type": "string",
+                      "value": {
+                        "content": "一位老爷爷，圆圆的脸蛋，脸上泛着红晕，表情温和且亲切",
+                        "rawMeta": {
+                          "type": 1
+                        },
+                        "type": "literal"
+                      }
+                    },
+                    "name": "String1"
+                  }
+                ],
+                "method": "concat"
+              },
+              "nodeMeta": {
+                "description": "用于处理多个字符串类型变量的格式",
+                "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-StrConcat-v2.jpg",
+                "mainColor": "#3071F2",
+                "subTitle": "文本处理",
+                "title": "人物描述"
+              },
+              "outputs": [
+                {
+                  "name": "output",
+                  "required": true,
+                  "type": "string"
+                }
+              ]
+            },
+            "edges": null,
+            "id": "156713",
+            "meta": {
+              "canvasPosition": {
+                "x": 0,
+                "y": 0
+              },
+              "defaultCollapsed": false,
+              "position": {
+                "x": -516.2970212145243,
+                "y": 45.17698925165984
+              }
+            },
+            "type": "15"
+          },
+          {
+            "blocks": [],
+            "data": {
+              "inputs": {
+                "inputParameters": [
+                  {
+                    "input": {
+                      "type": "string",
+                      "value": {
+                        "content": {
+                          "blockID": "115829",
+                          "name": "input",
+                          "source": "block-output"
+                        },
+                        "dependencies": {
+                          "variables": null
+                        },
+                        "inputMode": "",
+                        "rawMeta": {
+                          "type": 1
+                        },
+                        "type": "ref"
+                      }
+                    },
+                    "left": {},
+                    "name": "input",
+                    "right": {}
+                  },
+                  {
+                    "input": {
+                      "type": "string",
+                      "value": {
+                        "content": {
+                          "blockID": "156713",
+                          "name": "output",
+                          "source": "block-output"
+                        },
+                        "dependencies": {
+                          "variables": null
+                        },
+                        "inputMode": "",
+                        "rawMeta": {
+                          "type": 1
+                        },
+                        "type": "ref"
+                      }
+                    },
+                    "left": {},
+                    "name": "output",
+                    "right": {}
+                  }
+                ],
+                "llmParam": [
+                  {
+                    "input": {
+                      "type": "float",
+                      "value": {
+                        "content": "0.8",
+                        "dependencies": {
+                          "variables": null
+                        },
+                        "inputMode": "",
+                        "rawMeta": {
+                          "type": 4
+                        },
+                        "type": "literal"
+                      }
+                    },
+                    "left": {},
+                    "name": "temperature",
+                    "right": {}
+                  },
+                  {
+                    "input": {
+                      "type": "integer",
+                      "value": {
+                        "content": "1024",
+                        "dependencies": {
+                          "variables": null
+                        },
+                        "inputMode": "",
+                        "rawMeta": {
+                          "type": 2
+                        },
+                        "type": "literal"
+                      }
+                    },
+                    "left": {},
+                    "name": "maxTokens",
+                    "right": {}
+                  },
+                  {
+                    "input": {
+                      "type": "integer",
+                      "value": {
+                        "content": "2",
+                        "dependencies": {
+                          "variables": null
+                        },
+                        "inputMode": "",
+                        "rawMeta": {
+                          "type": 2
+                        },
+                        "type": "literal"
+                      }
+                    },
+                    "left": {},
+                    "name": "responseFormat",
+                    "right": {}
+                  },
+                  {
+                    "input": {
+                      "type": "string",
+                      "value": {
+                        "content": "DeepSeek-V3",
+                        "dependencies": {
+                          "variables": null
+                        },
+                        "inputMode": "",
+                        "rawMeta": {
+                          "type": 1
+                        },
+                        "type": "literal"
+                      }
+                    },
+                    "left": {},
+                    "name": "modleName",
+                    "right": {}
+                  },
+                  {
+                    "input": {
+                      "type": "integer",
+                      "value": {
+                        "content": "1738675210",
+                        "dependencies": {
+                          "variables": null
+                        },
+                        "inputMode": "",
+                        "rawMeta": {
+                          "type": 2
+                        },
+                        "type": "literal"
+                      }
+                    },
+                    "left": {},
+                    "name": "modelType",
+                    "right": {}
+                  },
+                  {
+                    "input": {
+                      "type": "string",
+                      "value": {
+                        "content": "balance",
+                        "dependencies": {
+                          "variables": null
+                        },
+                        "inputMode": "",
+                        "rawMeta": {
+                          "type": 1
+                        },
+                        "type": "literal"
+                      }
+                    },
+                    "left": {},
+                    "name": "generationDiversity",
+                    "right": {}
+                  },
+                  {
+                    "input": {
+                      "type": "string",
+                      "value": {
+                        "content": "{{input}}",
+                        "dependencies": {
+                          "variables": null
+                        },
+                        "inputMode": "",
+                        "rawMeta": {
+                          "type": 1
+                        },
+                        "type": "literal"
+                      }
+                    },
+                    "left": {},
+                    "name": "prompt",
+                    "right": {}
+                  },
+                  {
+                    "input": {
+                      "type": "boolean",
+                      "value": {
+                        "content": false,
+                        "dependencies": {
+                          "variables": null
+                        },
+                        "inputMode": "",
+                        "rawMeta": {
+                          "type": 3
+                        },
+                        "type": "literal"
+                      }
+                    },
+                    "left": {},
+                    "name": "enableChatHistory",
+                    "right": {}
+                  },
+                  {
+                    "input": {
+                      "type": "integer",
+                      "value": {
+                        "content": "3",
+                        "dependencies": {
+                          "variables": null
+                        },
+                        "inputMode": "",
+                        "rawMeta": {
+                          "type": 2
+                        },
+                        "type": "literal"
+                      }
+                    },
+                    "left": {},
+                    "name": "chatHistoryRound",
+                    "right": {}
+                  },
+                  {
+                    "input": {
+                      "type": "string",
+                      "value": {
+                        "content": "# 角色\n你是一位专注于情绪共鸣图文视频工作流，擅长创作彩色简笔画风格插画提示词的创作者。能够根据用户给定{{input}}内容，结合{{output}}人物形象，生成与之匹配的、不能有遗漏的、充满阳光明亮治愈系的场景插画提示词。插画具备卡通风格、治愈系特点以及生动童趣的手绘笔触。\n\n## 技能\n### 技能 1: 根据内容生成插画提示词\n1.  深入分析用户给定的每个{{input}}文本内容，精准提炼其中的情感、氛围和含义，并将其充分融入到后续构建的插画场景中。\n2.  **固定画面主体为{{output}}，其形象描述必须严格使用以下文本：** \"**{{output}}**\"。\n3.  围绕这位固定的{{output}}，根据**每个{{input}}内容提炼出的情感和含义**，创意构建与之匹配的、充满阳光、明亮、治愈系的场景和老爷爷的动作。确保构建的场景新颖且贴合当前文本主题，避免与过往示例（固定的形象描述本身除外）重复。\n4.  确保**每个生成的提示词**都包含“彩色简笔画”“阳光明亮的治愈系插画”“清新亮丽的色调和流畅的线条”“生动童趣手绘笔触”这些描述风格的词汇。\n5.  **对于用户提供的每一个{{input}}文本，生成一个对应的完整的插画提示词。输出提示词的数量必须与输入的文本数量一致，不能有任何遗漏或增减。只需要一个提示词输出一个描述词。**\n6.  生成的提示词中不要包含任何文字元素。\n\n## 限制:\n- 严格杜绝输出与过往相似或重复内容，每个输出都必须具备独特性。 \n- 生成的提示词中严禁出现文字\n-   **生成的提示词数量必须严格对应输入的文案数量，禁止删减或缺少任何一个。**\n-   **每个生成的提示词都必须以{{output}}形象描述开头：** \"**{{output}}**\"。在此基础上，描述与当前输入文案内容紧密关联的治愈场景和老奶奶的具体动作。\n-   生成的提示词画面必须是阳光明亮、充满治愈感的，严禁输出过暗或负面情绪的画面。\n-   每个生成的提示词描述应丰富具体，长度不得低于100字。\n-   **对于每一个输入的文本，生成一个对应的、独立的提示词。** 每个提示词必须包含固定的老奶奶形象描述以及所有指定的风格描述词汇。\n-   提示词描述要简洁明了，突出关键元素，清晰展现场景、老奶奶的动作与给定文案内容的关联性，尤其要体现出阳光明亮的感觉。\n-   严格杜绝输出的**场景和动作描述**与针对其他文案生成的场景重复，每个输出的**场景**都必须具备独特性（固定的形象描述本身除外）。\n-   生成的提示词中严禁出现任何可识别的文字。\n",
+                        "dependencies": {
+                          "variables": null
+                        },
+                        "inputMode": "",
+                        "rawMeta": {
+                          "type": 1
+                        },
+                        "type": "literal"
+                      }
+                    },
+                    "left": {},
+                    "name": "systemPrompt",
+                    "right": {}
+                  }
+                ],
+                "settingOnError": {
+                  "processType": 1,
+                  "switch": false,
+                  "timeoutMs": 600000
+                }
+              },
+              "nodeMeta": {
+                "description": "调用大语言模型,使用变量和提示词生成回复",
+                "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-LLM-v2.jpg",
+                "title": "图片提示词"
+              },
+              "outputs": [
+                {
+                  "input": {},
+                  "name": "output",
+                  "required": false,
+                  "type": "string"
+                }
+              ],
+              "settings": null,
+              "version": "3"
+            },
+            "edges": null,
+            "id": "849520",
+            "meta": {
+              "canvasPosition": {
+                "x": 0,
+                "y": 0
+              },
+              "defaultCollapsed": false,
+              "position": {
+                "x": -58.8513755706307,
+                "y": 19.17698925165986
+              }
+            },
+            "type": "3"
+          }
+        ],
+        "data": {
+          "inputs": {
+            "batchSize": {
+              "type": "integer",
+              "value": {
+                "content": "100",
+                "type": "literal"
+              }
+            },
+            "concurrentSize": {
+              "type": "integer",
+              "value": {
+                "content": "3",
+                "type": "literal"
+              }
+            },
+            "inputParameters": [
+              {
+                "input": {
+                  "schema": {
+                    "type": "string"
+                  },
+                  "type": "list",
+                  "value": {
+                    "content": {
+                      "blockID": "122935",
+                      "name": "content",
+                      "source": "block-output"
+                    },
+                    "rawMeta": {
+                      "type": 99
+                    },
+                    "type": "ref"
+                  }
+                },
+                "name": "input"
+              }
+            ]
+          },
+          "nodeMeta": {
+            "description": "通过设定批量运行次数和逻辑，运行批处理体内的任务",
+            "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Batch-v2.jpg",
+            "mainColor": "#00B2B2",
+            "subTitle": "批处理",
+            "title": "图片和音频生成"
+          },
+          "outputs": [
+            {
+              "input": {
+                "assistType": 2,
+                "schema": {
+                  "type": "string"
+                },
+                "type": "list",
+                "value": {
+                  "content": {
+                    "blockID": "09488",
+                    "name": "data",
+                    "source": "block-output"
+                  },
+                  "rawMeta": {
+                    "type": 7
+                  },
+                  "type": "ref"
+                }
+              },
+              "name": "data_list"
+            },
+            {
+              "input": {
+                "schema": {
+                  "type": "string"
+                },
+                "type": "list",
+                "value": {
+                  "content": {
+                    "blockID": "811094",
+                    "name": "data.link",
+                    "source": "block-output"
+                  },
+                  "rawMeta": {
+                    "type": 1
+                  },
+                  "type": "ref"
+                }
+              },
+              "name": "link_list"
+            }
+          ]
+        },
+        "edges": [
+          {
+            "sourceNodeID": "849520",
+            "sourcePortID": "",
+            "targetNodeID": "09488"
+          },
+          {
+            "sourceNodeID": "09488",
+            "sourcePortID": "",
+            "targetNodeID": "115829",
+            "targetPortID": "batch-function-inline-input"
+          },
+          {
+            "sourceNodeID": "115829",
+            "sourcePortID": "batch-function-inline-output",
+            "targetNodeID": "811094"
+          },
+          {
+            "sourceNodeID": "811094",
+            "sourcePortID": "",
+            "targetNodeID": "115829",
+            "targetPortID": "batch-function-inline-input"
+          },
+          {
+            "sourceNodeID": "115829",
+            "sourcePortID": "batch-function-inline-output",
+            "targetNodeID": "156713"
+          },
+          {
+            "sourceNodeID": "156713",
+            "sourcePortID": "",
+            "targetNodeID": "849520"
+          }
+        ],
+        "id": "115829",
+        "meta": {
+          "canvasPosition": {
+            "x": 96.55252206580796,
+            "y": 892.016414005346
+          },
+          "defaultCollapsed": false,
+          "position": {
+            "x": 44.716591082211536,
+            "y": 608.9175329320863
+          }
+        },
+        "type": "28",
+        "_temp": {
+          "bounds": {
+            "x": -135.28340891778845,
+            "y": 608.9175329320863,
+            "width": 360,
+            "height": 112
+          }
+        }
+      },
+      {
+        "blocks": [],
+        "data": {
+          "inputs": {
+            "inputParameters": [
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": {
+                      "blockID": "100001",
+                      "name": "input",
+                      "source": "block-output"
+                    },
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "ref"
+                  }
+                },
+                "left": {},
+                "name": "input",
+                "right": {}
+              }
+            ],
+            "llmParam": [
+              {
+                "input": {
+                  "type": "float",
+                  "value": {
+                    "content": "0.8",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 4
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "temperature",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "integer",
+                  "value": {
+                    "content": "1024",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 2
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "maxTokens",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "integer",
+                  "value": {
+                    "content": "2",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 2
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "responseFormat",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "DeepSeek-V3",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "modleName",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "integer",
+                  "value": {
+                    "content": "1738675210",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 2
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "modelType",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "balance",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "generationDiversity",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "{{input}}-   所输出内容必须是原创，力求用词和立意的差异化和新颖性，避免与常见表达雷同。创作内容字数严格控制在150字以内（含标点）。",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "prompt",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "boolean",
+                  "value": {
+                    "content": false,
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 3
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "enableChatHistory",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "integer",
+                  "value": {
+                    "content": "3",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 2
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "chatHistoryRound",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "# 角色\n你是一位擅长创作情感共鸣、接地气且人间清醒的文字创作者。你能够根据用户输入的内容，提炼深层感悟，用真挚且**通俗易懂**的语言，结合**精炼、有反差与亮点**的短句组合，生成一段不超过100字、能引发深刻而**易懂**的人生感悟的文本。\n\n## 技能\n### 技能 1: 创作精炼深刻且通俗易懂的人间清醒语句\n1.  当用户输入相关内容并要求创作情感共鸣且人间清醒语句时，深入分析用户输入内容，挖掘其中普遍存在的情感共鸣点、生活困境及**可引发普通人共鸣**的人生洞察。\n2.  提炼核心感悟，用**贴近生活、朴实无华**的语言，将其转化为一系列**直击人心、易于理解**的短句或短语。\n4.  通过巧妙组合这些短句，短句不能5-7个字，形成一段整体不超过100字的文本。组合方式应**自然流畅**，或通过**生活化的对比、温和的转折**，制造令人眼前一亮、**容易记住**的亮点和共鸣。\n5.  确保生成的文本既紧密围绕用户输入，又从中提炼出**普通人都能感同身受**的“人间清醒”洞察和感悟。\n6.  **每次根据不同的输入，生成的内容风格、情感侧重或表达方式应体现差异化，避免模式化。**\n7.  仅输出生成的人间清醒语句内容，其他任何说明、引导或无关内容均不输出。\n\n## 限制:\n-   回答内容必须围绕用户输入内容，创作**通俗易懂**、情感共鸣强烈且人间清醒的语句组合，拒绝回答无关话题。\n-   所输出内容必须是原创创作，不得抄袭已有内容。\n-   **生成的整段文本的总字数（不含标点符号）不得超过100字。**\n-   内容需具备**普通人易于理解**的人生感悟和强烈的情感共鸣。\n-   文本中应巧妙运用**生活化的**对比、转折等手法，营造**令人眼前一亮、易于产生共鸣**的反差与亮点。\n-   每次根据不同输入生成的内容，其整体意境和短句组合方式应体现差异化。\n-   **仅输出生成的人间清醒语句文本内容。**\n",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "systemPrompt",
+                "right": {}
+              }
+            ],
+            "settingOnError": {
+              "processType": 1,
+              "switch": false,
+              "timeoutMs": 600000
+            }
+          },
+          "nodeMeta": {
+            "description": "调用大语言模型,使用变量和提示词生成回复",
+            "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-LLM-v2.jpg",
+            "title": "情感内容输出"
+          },
+          "outputs": [
+            {
+              "input": {},
+              "name": "output",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "settings": null,
+          "version": "3"
+        },
+        "edges": null,
+        "id": "176350",
+        "meta": {
+          "canvasPosition": {
+            "x": 0,
+            "y": 0
+          },
+          "defaultCollapsed": false,
+          "position": {
+            "x": -431.2209218396759,
+            "y": 288.579229228913
+          }
+        },
+        "type": "3",
+        "_temp": {
+          "bounds": {
+            "x": -611.2209218396758,
+            "y": 288.579229228913,
+            "width": 360,
+            "height": 112
+          }
+        }
+      },
+      {
+        "blocks": [],
+        "data": {
+          "inputs": {
+            "inputParameters": [
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": {
+                      "blockID": "176350",
+                      "name": "output",
+                      "source": "block-output"
+                    },
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "ref"
+                  }
+                },
+                "left": {},
+                "name": "input",
+                "right": {}
+              }
+            ],
+            "llmParam": [
+              {
+                "input": {
+                  "type": "float",
+                  "value": {
+                    "content": "0.8",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 4
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "temperature",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "integer",
+                  "value": {
+                    "content": "4096",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 2
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "maxTokens",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "integer",
+                  "value": {
+                    "content": "2",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 2
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "responseFormat",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "豆包·角色扮演·Pro",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "modleName",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "integer",
+                  "value": {
+                    "content": "1736929267",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 2
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "modelType",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "balance",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "generationDiversity",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "输入{{input}}",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "prompt",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "boolean",
+                  "value": {
+                    "content": false,
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 3
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "enableChatHistory",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "integer",
+                  "value": {
+                    "content": "3",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 2
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "chatHistoryRound",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "# 角色\n你是文本处理分割，是一位专注于治愈老爷爷视频生成工作流的助手，能够根据输入文本理解其含义，并进行针对性处理，以用于图片文字以及图片生成。\n\n## 技能\n### 技能 1: 文本分割\n1. 接收用户输入的文本，理解其意思。\n2. 优先以换行的方式对输入文本进行分割处理。\n3. 将分割后的文本提供给用户。\n\n## 限制:\n- 只处理与图片上的字以及图片生成相关的文本输入，拒绝回答无关话题。\n- 输出内容必须是经过换行分割后的文本形式，不能偏离此要求。 ",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "systemPrompt",
+                "right": {}
+              }
+            ],
+            "settingOnError": {
+              "processType": 1,
+              "switch": false,
+              "timeoutMs": 180000
+            }
+          },
+          "nodeMeta": {
+            "description": "调用大语言模型,使用变量和提示词生成回复",
+            "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-LLM-v2.jpg",
+            "title": "内容分割"
+          },
+          "outputs": [
+            {
+              "input": {},
+              "name": "content",
+              "required": false,
+              "schema": {
+                "type": "string"
+              },
+              "type": "list"
+            }
+          ],
+          "settings": null,
+          "version": "3"
+        },
+        "edges": null,
+        "id": "122935",
+        "meta": {
+          "canvasPosition": {
+            "x": 0,
+            "y": 0
+          },
+          "defaultCollapsed": false,
+          "position": {
+            "x": 44.716591082211536,
+            "y": 288.579229228913
+          }
+        },
+        "type": "3",
+        "_temp": {
+          "bounds": {
+            "x": -135.28340891778845,
+            "y": 288.579229228913,
+            "width": 360,
+            "height": 112
+          }
+        }
+      },
+      {
+        "blocks": [
+          {
+            "blocks": [],
+            "data": {
+              "inputs": {
+                "apiParam": [
+                  {
+                    "input": {
+                      "type": "string",
+                      "value": {
+                        "content": "7424348612005494822",
+                        "rawMeta": {
+                          "type": 1
+                        },
+                        "type": "literal"
+                      }
+                    },
+                    "name": "apiID"
+                  },
+                  {
+                    "input": {
+                      "type": "string",
+                      "value": {
+                        "content": "img_audio_video",
+                        "rawMeta": {
+                          "type": 1
+                        },
+                        "type": "literal"
+                      }
+                    },
+                    "name": "apiName"
+                  },
+                  {
+                    "input": {
+                      "type": "string",
+                      "value": {
+                        "content": "7418409962344333350",
+                        "rawMeta": {
+                          "type": 1
+                        },
+                        "type": "literal"
+                      }
+                    },
+                    "name": "pluginID"
+                  },
+                  {
+                    "input": {
+                      "type": "string",
+                      "value": {
+                        "content": "视频合成工具箱",
+                        "rawMeta": {
+                          "type": 1
+                        },
+                        "type": "literal"
+                      }
+                    },
+                    "name": "pluginName"
+                  },
+                  {
+                    "input": {
+                      "type": "string",
+                      "value": {
+                        "content": "",
+                        "rawMeta": {
+                          "type": 1
+                        },
+                        "type": "literal"
+                      }
+                    },
+                    "name": "pluginVersion"
+                  },
+                  {
+                    "input": {
+                      "type": "string",
+                      "value": {
+                        "content": "",
+                        "rawMeta": {
+                          "type": 1
+                        },
+                        "type": "literal"
+                      }
+                    },
+                    "name": "tips"
+                  },
+                  {
+                    "input": {
+                      "type": "string",
+                      "value": {
+                        "content": "",
+                        "rawMeta": {
+                          "type": 1
+                        },
+                        "type": "literal"
+                      }
+                    },
+                    "name": "outDocLink"
+                  }
+                ],
+                "inputParameters": [
+                  {
+                    "input": {
+                      "type": "string",
+                      "value": {
+                        "content": {
+                          "blockID": "100001",
+                          "name": "apikey",
+                          "source": "block-output"
+                        },
+                        "rawMeta": {
+                          "type": 1
+                        },
+                        "type": "ref"
+                      }
+                    },
+                    "name": "api_token"
+                  },
+                  {
+                    "input": {
+                      "type": "string",
+                      "value": {
+                        "content": {
+                          "blockID": "188299",
+                          "name": "image",
+                          "source": "block-output"
+                        },
+                        "rawMeta": {
+                          "type": 1
+                        },
+                        "type": "ref"
+                      }
+                    },
+                    "name": "img_url"
+                  },
+                  {
+                    "input": {
+                      "type": "string",
+                      "value": {
+                        "content": {
+                          "blockID": "188299",
+                          "name": "link_list",
+                          "source": "block-output"
+                        },
+                        "rawMeta": {
+                          "type": 1
+                        },
+                        "type": "ref"
+                      }
+                    },
+                    "name": "mp3_url"
+                  }
+                ],
+                "settingOnError": {
+                  "processType": 1,
+                  "retryTimes": 0,
+                  "timeoutMs": 180000
+                }
+              },
+              "nodeMeta": {
+                "description": "视频合成工具箱",
+                "icon": "https://p3-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/6609ead308fb4e9d90734d2e5ce170f5~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd&x-expires=1751725814&x-signature=qqL7u1IpImGvkOMH8nVd%2B1UIhOY%3D",
+                "subtitle": "视频合成工具箱:img_audio_video",
+                "title": "img_audio_video"
+              },
+              "outputs": [
+                {
+                  "name": "message",
+                  "required": false,
+                  "type": "string"
+                },
+                {
+                  "name": "out_url",
+                  "required": false,
+                  "type": "string"
+                },
+                {
+                  "name": "tip_url",
+                  "required": false,
+                  "type": "string"
+                },
+                {
+                  "name": "duration",
+                  "required": false,
+                  "type": "float"
+                }
+              ]
+            },
+            "edges": null,
+            "id": "114881",
+            "meta": {
+              "canvasPosition": {
+                "x": 0,
+                "y": 0
+              },
+              "defaultCollapsed": false,
+              "position": {
+                "x": 0,
+                "y": 100
+              }
+            },
+            "type": "4"
+          }
+        ],
+        "data": {
+          "inputs": {
+            "batchSize": {
+              "type": "integer",
+              "value": {
+                "content": 100,
+                "rawMeta": {
+                  "type": 2
+                },
+                "type": "literal"
+              }
+            },
+            "concurrentSize": {
+              "type": "integer",
+              "value": {
+                "content": 10,
+                "rawMeta": {
+                  "type": 2
+                },
+                "type": "literal"
+              }
+            },
+            "inputParameters": [
+              {
+                "input": {
+                  "schema": {
+                    "assistType": 2,
+                    "type": "string"
+                  },
+                  "type": "list",
+                  "value": {
+                    "content": {
+                      "blockID": "115829",
+                      "name": "data_list",
+                      "source": "block-output"
+                    },
+                    "rawMeta": {
+                      "type": 104
+                    },
+                    "type": "ref"
+                  }
+                },
+                "name": "image"
+              },
+              {
+                "input": {
+                  "schema": {
+                    "type": "string"
+                  },
+                  "type": "list",
+                  "value": {
+                    "content": {
+                      "blockID": "115829",
+                      "name": "link_list",
+                      "source": "block-output"
+                    },
+                    "rawMeta": {
+                      "type": 99
+                    },
+                    "type": "ref"
+                  }
+                },
+                "name": "link_list"
+              }
+            ]
+          },
+          "nodeMeta": {
+            "description": "通过设定批量运行次数和逻辑，运行批处理体内的任务",
+            "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Batch-v2.jpg",
+            "mainColor": "#00B2B2",
+            "subTitle": "批处理",
+            "title": "批处理"
+          },
+          "outputs": [
+            {
+              "input": {
+                "schema": {
+                  "type": "string"
+                },
+                "type": "list",
+                "value": {
+                  "content": {
+                    "blockID": "114881",
+                    "name": "out_url",
+                    "source": "block-output"
+                  },
+                  "rawMeta": {
+                    "type": 1
+                  },
+                  "type": "ref"
+                }
+              },
+              "name": "output"
+            }
+          ]
+        },
+        "edges": [
+          {
+            "sourceNodeID": "188299",
+            "sourcePortID": "batch-function-inline-output",
+            "targetNodeID": "114881"
+          },
+          {
+            "sourceNodeID": "114881",
+            "sourcePortID": "",
+            "targetNodeID": "188299",
+            "targetPortID": "batch-function-inline-input"
+          }
+        ],
+        "id": "188299",
+        "meta": {
+          "canvasPosition": {
+            "x": 846.7107130948258,
+            "y": 477.35075630112584
+          },
+          "defaultCollapsed": false,
+          "position": {
+            "x": 846.7107130948258,
+            "y": 288.579229228913
+          }
+        },
+        "type": "28",
+        "_temp": {
+          "bounds": {
+            "x": 666.7107130948258,
+            "y": 288.579229228913,
+            "width": 360,
+            "height": 112
+          }
+        }
+      },
+      {
+        "blocks": [],
+        "data": {
+          "inputs": {
+            "apiParam": [
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "7424414550021210112",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "apiID"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "video_merging",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "apiName"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "7418409962344333350",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "pluginID"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "视频合成工具箱",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "pluginName"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "pluginVersion"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "tips"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "outDocLink"
+              }
+            ],
+            "inputParameters": [
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": {
+                      "blockID": "100001",
+                      "name": "apikey",
+                      "source": "block-output"
+                    },
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "ref"
+                  }
+                },
+                "name": "api_token"
+              },
+              {
+                "input": {
+                  "schema": {
+                    "type": "string"
+                  },
+                  "type": "list",
+                  "value": {
+                    "content": {
+                      "blockID": "188299",
+                      "name": "output",
+                      "source": "block-output"
+                    },
+                    "rawMeta": {
+                      "type": 99
+                    },
+                    "type": "ref"
+                  }
+                },
+                "name": "video_urls"
+              }
+            ],
+            "settingOnError": {
+              "processType": 1,
+              "retryTimes": 0,
+              "timeoutMs": 180000
+            }
+          },
+          "nodeMeta": {
+            "description": "视频合成工具箱",
+            "icon": "https://p3-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/6609ead308fb4e9d90734d2e5ce170f5~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd&x-expires=1751725814&x-signature=qqL7u1IpImGvkOMH8nVd%2B1UIhOY%3D",
+            "subtitle": "视频合成工具箱:video_merging",
+            "title": "video_merging"
+          },
+          "outputs": [
+            {
+              "name": "tip_url",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "duration",
+              "required": false,
+              "type": "float"
+            },
+            {
+              "name": "error",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "message",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "out_url",
+              "required": false,
+              "type": "string"
+            }
+          ]
+        },
+        "edges": null,
+        "id": "132975",
+        "meta": {
+          "canvasPosition": {
+            "x": 0,
+            "y": 0
+          },
+          "defaultCollapsed": false,
+          "position": {
+            "x": 1336.9783911541874,
+            "y": 277.92922922891296
+          }
+        },
+        "type": "4",
+        "_temp": {
+          "bounds": {
+            "x": 1156.9783911541874,
+            "y": 277.92922922891296,
+            "width": 360,
+            "height": 112
+          }
+        }
+      }
+    ],
+    "edges": [
+      {
+        "sourceNodeID": "100001",
+        "sourcePortID": "",
+        "targetNodeID": "176350"
+      },
+      {
+        "sourceNodeID": "132975",
+        "sourcePortID": "",
+        "targetNodeID": "900001"
+      },
+      {
+        "sourceNodeID": "122935",
+        "sourcePortID": "",
+        "targetNodeID": "115829"
+      },
+      {
+        "sourceNodeID": "115829",
+        "sourcePortID": "batch-output",
+        "targetNodeID": "188299"
+      },
+      {
+        "sourceNodeID": "176350",
+        "sourcePortID": "",
+        "targetNodeID": "122935"
+      },
+      {
+        "sourceNodeID": "188299",
+        "sourcePortID": "batch-output",
+        "targetNodeID": "132975"
+      }
+    ]
+  },
+  "bounds": {
+    "x": -1046.8247538897333,
+    "y": 277.92922922891296,
+    "width": 3035.7853562980927,
+    "height": 442.9883037031733
+  }
+}

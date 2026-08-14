@@ -1,0 +1,385 @@
+{
+  "type": "coze-workflow-clipboard-data",
+  "source": {
+    "workflowId": "",
+    "flowMode": 0,
+    "spaceId": "",
+    "isDouyin": false,
+    "host": "www.coze.cn"
+  },
+  "json": {
+    "nodes": [
+      {
+        "blocks": [],
+        "data": {
+          "nodeMeta": {
+            "description": "工作流的起始节点，用于设定启动工作流需要的信息",
+            "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Start-v2.jpg",
+            "subTitle": "",
+            "title": "开始"
+          },
+          "outputs": [
+            {
+              "description": "用户本轮对话输入内容",
+              "name": "BOT_USER_INPUT",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "description": "音频内容",
+              "name": "mp3_url",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "description": "生成的文字内容",
+              "name": "text",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "description": "到https://www.51aigc.cc/#/userInfo?user_id=267716个人中心获取",
+              "name": "api_token",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "trigger_parameters": [
+            {
+              "description": "用户本轮对话输入内容",
+              "name": "BOT_USER_INPUT",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "description": "音频内容",
+              "name": "mp3_url",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "description": "生成的文字内容",
+              "name": "text",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "description": "到https://www.51aigc.cc/#/userInfo?user_id=267716个人中心获取",
+              "name": "api_token",
+              "required": true,
+              "type": "string"
+            }
+          ]
+        },
+        "edges": null,
+        "id": "100001",
+        "meta": {
+          "canvasPosition": {
+            "x": 0,
+            "y": 0
+          },
+          "defaultCollapsed": false,
+          "position": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "type": "1",
+        "_temp": {
+          "bounds": {
+            "x": -180,
+            "y": 0,
+            "width": 360,
+            "height": 112
+          }
+        }
+      },
+      {
+        "blocks": [],
+        "data": {
+          "inputs": {
+            "inputParameters": [
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": {
+                      "blockID": "136693",
+                      "name": "audio_url",
+                      "source": "block-output"
+                    },
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "ref"
+                  }
+                },
+                "name": "output"
+              }
+            ],
+            "terminatePlan": "returnVariables"
+          },
+          "nodeMeta": {
+            "description": "工作流的最终节点，用于返回工作流运行后的结果信息",
+            "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-End-v2.jpg",
+            "subTitle": "",
+            "title": "结束"
+          }
+        },
+        "edges": null,
+        "id": "900001",
+        "meta": {
+          "canvasPosition": {
+            "x": 0,
+            "y": 0
+          },
+          "defaultCollapsed": false,
+          "position": {
+            "x": 1000,
+            "y": 0
+          }
+        },
+        "type": "2",
+        "_temp": {
+          "bounds": {
+            "x": 820,
+            "y": 0,
+            "width": 360,
+            "height": 112
+          }
+        }
+      },
+      {
+        "blocks": [],
+        "data": {
+          "inputs": {
+            "apiParam": [
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "7411881408039485440",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "apiID",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "voice_clone",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "apiName",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "7411881408039469056",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "pluginID",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "声音克隆",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "pluginName",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "pluginVersion",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "tips",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "outDocLink",
+                "right": {}
+              }
+            ],
+            "inputParameters": [
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": {
+                      "blockID": "100001",
+                      "name": "api_token",
+                      "source": "block-output"
+                    },
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "ref"
+                  }
+                },
+                "name": "api_token"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": {
+                      "blockID": "100001",
+                      "name": "mp3_url",
+                      "source": "block-output"
+                    },
+                    "type": "ref"
+                  }
+                },
+                "name": "speaker"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": {
+                      "blockID": "100001",
+                      "name": "text",
+                      "source": "block-output"
+                    },
+                    "type": "ref"
+                  }
+                },
+                "name": "text"
+              }
+            ],
+            "settingOnError": {
+              "processType": 1,
+              "retryTimes": 0,
+              "switch": false,
+              "timeoutMs": 180000
+            }
+          },
+          "nodeMeta": {
+            "description": "输入音频和内容直接克隆",
+            "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Api.png",
+            "title": "voice_clone"
+          },
+          "outputs": [
+            {
+              "name": "message",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "audio_url",
+              "required": false,
+              "type": "string"
+            }
+          ]
+        },
+        "edges": null,
+        "id": "136693",
+        "meta": {
+          "canvasPosition": {
+            "x": 0,
+            "y": 0
+          },
+          "defaultCollapsed": false,
+          "position": {
+            "x": 482.5530343456051,
+            "y": 0
+          }
+        },
+        "type": "4",
+        "_temp": {
+          "bounds": {
+            "x": 302.5530343456051,
+            "y": 0,
+            "width": 360,
+            "height": 112
+          }
+        }
+      }
+    ],
+    "edges": [
+      {
+        "sourceNodeID": "100001",
+        "sourcePortID": "",
+        "targetNodeID": "136693"
+      },
+      {
+        "sourceNodeID": "136693",
+        "sourcePortID": "",
+        "targetNodeID": "900001"
+      }
+    ]
+  },
+  "bounds": {
+    "x": -180,
+    "y": 0,
+    "width": 1360,
+    "height": 112
+  }
+}
