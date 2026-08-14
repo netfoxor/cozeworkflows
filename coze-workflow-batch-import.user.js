@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Coze 工作流批量导入 v2
+// @name         Coze 工作流批量导入 v3
 // @namespace    http://tampermonkey.net/
-// @version      2.0
-// @description  批量导入工作流 JSON 文件到 Coze 资源库，支持同名检测跳过
+// @version      3.0
+// @description  批量导入工作流 ZIP 文件到 Coze 资源库，支持同名检测跳过、错误重试
 // @author       Vibe Coding
 // @match        https://www.coze.cn/*
 // @match        https://coze.cn/*
@@ -17,10 +17,12 @@
 
     // ========== 配置 ==========
     const CONFIG = {
-        importInterval: 2500,      // 导入间隔（毫秒）
+        importInterval: 5000,      // 导入间隔（毫秒）- 增加到 5 秒避免连接关闭
         waitTime: 1500,            // 等待页面响应时间
         skipDuplicates: true,      // 跳过同名工作流
-        debug: true                // 调试模式
+        debug: true,               // 调试模式
+        maxRetries: 2,             // 最大重试次数
+        retryDelay: 3000           // 重试间隔（毫秒）
     };
 
     // ========== 全局状态 ==========
@@ -169,7 +171,7 @@
 
     // 从文件名提取工作流名称
     function extractWorkflowName(filename) {
-        // 格式: Workflow-X001_描述_1-draft-1075.json
+        // 格式: Workflow-X001_描述_1-draft-1075.zip
         const match = filename.match(/Workflow-X\d+_(.+?)_1-draft/);
         if (match) {
             // 去掉类型前缀（W/V/T/P/S等）
@@ -181,7 +183,7 @@
             }
             return name;
         }
-        return filename.replace('.json', '');
+        return filename.replace(/\.(json|zip)$/, '');
     }
 
     // 获取页面上已存在的工作流名称
@@ -350,8 +352,49 @@
         return null;
     }
 
+    // 关闭"确认离开"弹窗
+    async function dismissLeaveDialog() {
+        const dialogs = document.querySelectorAll('[class*="modal"], [class*="dialog"]');
+        for (const dialog of dialogs) {
+            if (dialog.textContent.includes('确认离开') || dialog.textContent.includes('离开会终止')) {
+                log('检测到"确认离开"弹窗，点击取消');
+                // 通常"取消"按钮是第一个按钮
+                const cancelBtn = dialog.querySelector('button:first-child') || 
+                                  dialog.querySelector('[class*="cancel"]') ||
+                                  Array.from(dialog.querySelectorAll('button')).find(b => 
+                                      b.textContent.includes('取消') || b.textContent.includes('Cancel')
+                                  );
+                if (cancelBtn) {
+                    cancelBtn.click();
+                    await sleep(500);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    // 关闭导入弹窗
+    async function closeImportDialog() {
+        const dialogs = document.querySelectorAll('[class*="modal"], [class*="dialog"]');
+        for (const dialog of dialogs) {
+            // 排除"确认离开"弹窗
+            if (dialog.textContent.includes('确认离开') || dialog.textContent.includes('离开会终止')) {
+                continue;
+            }
+            // 查找关闭按钮
+            const closeBtn = dialog.querySelector('[class*="close"], [aria-label="Close"], button:last-child');
+            if (closeBtn) {
+                closeBtn.click();
+                await sleep(500);
+                return true;
+            }
+        }
+        return false;
+    }
+
     // ========== 核心导入逻辑 ==========
-    async function importNextFile() {
+    async function importNextFile(retryCount = 0) {
         if (currentIndex >= files.length) {
             updateStatus('全部完成！');
             isRunning = false;
@@ -402,21 +445,17 @@
             log('步骤4: 等待导入完成');
             await sleep(CONFIG.importInterval);
 
-            // 检查弹窗是否还存在（如果关闭说明导入完成）
-            const dialogStillOpen = document.querySelector('[class*="modal"], [class*="dialog"]');
-            
+            // 处理"确认离开"弹窗（如果有）
+            await dismissLeaveDialog();
+
             // 记录到已存在列表
             existingWorkflows.add(workflowName);
             addLog(`✓ 导入成功: ${file.name}`, 'success');
             currentIndex++;
             updateProgress();
 
-            // 如果弹窗还开着，尝试关闭它
-            if (dialogStillOpen) {
-                const closeBtn = dialogStillOpen.querySelector('[class*="close"], [aria-label="Close"], button:last-child');
-                if (closeBtn) closeBtn.click();
-                await sleep(500);
-            }
+            // 关闭导入弹窗
+            await closeImportDialog();
 
             // 继续下一个
             await sleep(500);
@@ -424,11 +463,20 @@
 
         } catch (error) {
             logError(`导入失败: ${file.name}`, error.message);
+            
+            // 重试逻辑
+            if (retryCount < CONFIG.maxRetries) {
+                addLog(` 重试 (${retryCount + 1}/${CONFIG.maxRetries}): ${file.name}`, 'skip');
+                await sleep(CONFIG.retryDelay);
+                importNextFile(retryCount + 1);
+                return;
+            }
+            
             addLog(`✗ 失败: ${file.name} - ${error.message}`, 'error');
             
             // 尝试关闭可能的弹窗
-            const closeBtn = document.querySelector('[class*="close"], [aria-label="Close"]');
-            if (closeBtn) closeBtn.click();
+            await dismissLeaveDialog();
+            await closeImportDialog();
             
             await sleep(1000);
             
@@ -445,7 +493,7 @@
         panel.id = 'coze-batch-panel';
         panel.innerHTML = `
             <div class="header">
-                <span>Coze 工作流批量导入 v2</span>
+                <span>Coze 工作流批量导入 v3</span>
                 <span class="close-btn" id="coze-close-btn">&times;</span>
             </div>
             <div class="body">
@@ -475,7 +523,7 @@
             // 支持文件夹选择和多个文件选择
             let selectedFiles = Array.from(e.target.files);
             
-            // 如果选择了文件夹，过滤出 JSON 文件
+            // 如果选择了文件夹，过滤出 JSON/ZIP 文件
             files = selectedFiles.filter(f => f.name.endsWith('.json') || f.name.endsWith('.zip'));
             
             if (files.length > 0) {
@@ -484,7 +532,7 @@
                 addLog(`已选择 ${files.length} 个工作流文件`, 'info');
                 log(`文件列表: ${files.map(f => f.name).join(', ')}`);
             } else {
-                addLog('未找到 JSON 文件', 'error');
+                addLog('未找到 JSON/ZIP 文件', 'error');
             }
         };
 
