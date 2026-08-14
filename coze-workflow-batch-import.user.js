@@ -418,8 +418,13 @@
         addLog(`开始导入: ${file.name}`, 'info');
 
         try {
-            // 步骤1: 点击"导入"按钮打开弹窗
-            log('步骤1: 查找导入按钮');
+            // 步骤1: 先关闭可能存在的旧弹窗，确保状态干净
+            log('步骤1: 检查并关闭旧弹窗');
+            await closeImportDialog();
+            await sleep(1000);
+            
+            // 步骤2: 点击"导入"按钮打开新弹窗
+            log('步骤2: 查找导入按钮');
             const importBtn = findButton('导入');
             if (!importBtn) {
                 throw new Error('找不到"导入"按钮，请确认当前在资源库页面');
@@ -427,15 +432,15 @@
             importBtn.click();
             await sleep(CONFIG.waitTime);
 
-            // 步骤2: 等待文件输入框出现（排除脚本自己创建的文件输入框）
-            log('步骤2: 等待文件输入框');
+            // 步骤3: 等待文件输入框出现（排除脚本自己创建的文件输入框）
+            log('步骤3: 等待文件输入框');
             const fileInput = await waitForElement('input[type="file"]:not(#coze-file-input)', 5000);
             if (!fileInput) {
                 throw new Error('找不到文件输入框');
             }
 
-            // 步骤3: 上传文件
-            log('步骤3: 上传文件');
+            // 步骤4: 上传文件
+            log('步骤4: 上传文件');
             const dataTransfer = new DataTransfer();
             dataTransfer.items.add(file);
             fileInput.files = dataTransfer.files;
