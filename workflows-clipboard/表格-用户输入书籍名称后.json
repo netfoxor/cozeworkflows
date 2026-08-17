@@ -1,0 +1,357 @@
+{
+  "type": "coze-workflow-clipboard-data",
+  "source": {
+    "workflowId": "",
+    "flowMode": 0,
+    "spaceId": "",
+    "isDouyin": false,
+    "host": "www.coze.cn",
+    "workflow_meta": {
+      "category": "表格",
+      "short_name": "用户输入书籍名称后",
+      "desc": "用户输入书籍名称后，自动调用该工作流生成图片",
+      "manifest_name": "X94_Pshuji_picture_1",
+      "source_zip": "Workflow-X94_Pshuji_picture_1-draft-6005.zip",
+      "original_file": "Workflow-X094_Pshuji_picture_1-draft-6005-clipboard.pretty.json"
+    }
+  },
+  "json": {
+    "nodes": [
+      {
+        "blocks": [],
+        "data": {
+          "nodeMeta": {
+            "description": "工作流的起始节点，用于设定启动工作流需要的信息",
+            "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Start-v2.jpg",
+            "subTitle": "",
+            "title": "开始"
+          },
+          "outputs": [
+            {
+              "name": "shujimingcheng",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "trigger_parameters": []
+        },
+        "edges": null,
+        "id": "100001",
+        "meta": {
+          "position": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "type": "1",
+        "_temp": {
+          "bounds": {
+            "x": -180,
+            "y": 0,
+            "width": 360,
+            "height": 112
+          }
+        }
+      },
+      {
+        "blocks": [],
+        "data": {
+          "inputs": {
+            "inputParameters": [
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": {
+                      "blockID": "100001",
+                      "name": "shujimingcheng",
+                      "source": "block-output"
+                    },
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "ref"
+                  }
+                },
+                "name": "output"
+              }
+            ],
+            "terminatePlan": "returnVariables"
+          },
+          "nodeMeta": {
+            "description": "工作流的最终节点，用于返回工作流运行后的结果信息",
+            "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-End-v2.jpg",
+            "subTitle": "",
+            "title": "结束"
+          }
+        },
+        "edges": null,
+        "id": "900001",
+        "meta": {
+          "position": {
+            "x": 1000,
+            "y": 0
+          }
+        },
+        "type": "2",
+        "_temp": {
+          "bounds": {
+            "x": 820,
+            "y": 0,
+            "width": 360,
+            "height": 112
+          }
+        }
+      },
+      {
+        "blocks": [],
+        "data": {
+          "inputs": {
+            "inputParameters": [
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": {
+                      "blockID": "100001",
+                      "name": "shujimingcheng",
+                      "source": "block-output"
+                    },
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "ref"
+                  }
+                },
+                "name": "input"
+              }
+            ],
+            "llmParam": [
+              {
+                "input": {
+                  "type": "integer",
+                  "value": {
+                    "content": "1737521813",
+                    "rawMeta": {
+                      "type": 2
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "modelType"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "豆包·1.5·Pro·32k",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "modleName"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "balance",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "generationDiversity"
+              },
+              {
+                "input": {
+                  "type": "float",
+                  "value": {
+                    "content": "0.8",
+                    "rawMeta": {
+                      "type": 4
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "temperature"
+              },
+              {
+                "input": {
+                  "type": "integer",
+                  "value": {
+                    "content": "4096",
+                    "rawMeta": {
+                      "type": 2
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "maxTokens"
+              },
+              {
+                "input": {
+                  "type": "integer",
+                  "value": {
+                    "content": "2",
+                    "rawMeta": {
+                      "type": 2
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "responseFormat"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "prompt"
+              },
+              {
+                "input": {
+                  "type": "boolean",
+                  "value": {
+                    "content": false,
+                    "rawMeta": {
+                      "type": 3
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "enableChatHistory"
+              },
+              {
+                "input": {
+                  "type": "integer",
+                  "value": {
+                    "content": "3",
+                    "rawMeta": {
+                      "type": 2
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "chatHistoryRound"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "# 角色\n你是一个书籍介绍助手，能够根据用户输入的书籍名称，准确生成对应的书籍名称、相关图片url以及详细描述。\n\n## 技能\n### 技能 1: 生成书籍信息\n1. 当用户输入书籍名称后，你需要使用工具搜索该书籍的相关信息。\n2. 从搜索结果中提取并整理出对应的书籍名称、清晰的图片url以及简洁而全面的描述。\n3. 将整理好的信息按照以下格式输出：\n    -  📖 书籍名: <书籍名称>\n    -  🖼️ 图片url: <对应的图片链接>\n    -  💬 书籍描述: <详细描述该书的主要内容、特色等>\n\n## 限制:\n- 只围绕用户输入的书籍名称生成相关信息，拒绝回答与书籍本身无关的话题。\n- 所输出的内容必须按照给定的格式进行组织，不能偏离框架要求。\n- 生成的描述要简洁明了，重点突出。\n- 通过工具搜索获取书籍相关信息。 ",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "systemPrompt"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "stableSystemPrompt"
+              },
+              {
+                "input": {
+                  "type": "boolean",
+                  "value": {
+                    "content": false,
+                    "rawMeta": {
+                      "type": 3
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "canContinue"
+              }
+            ],
+            "settingOnError": {
+              "processType": 1,
+              "retryTimes": 0,
+              "switch": false,
+              "timeoutMs": 180000
+            }
+          },
+          "nodeMeta": {
+            "description": "调用大语言模型,使用变量和提示词生成回复",
+            "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-LLM-v2.jpg",
+            "subTitle": "大模型",
+            "title": "大模型"
+          },
+          "outputs": [
+            {
+              "name": "output",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "prompt",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "image",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "version": "3"
+        },
+        "edges": null,
+        "id": "128664",
+        "meta": {
+          "position": {
+            "x": 458.0581929555896,
+            "y": -39
+          }
+        },
+        "type": "3",
+        "_temp": {
+          "bounds": {
+            "x": 278.0581929555896,
+            "y": -39,
+            "width": 360,
+            "height": 112
+          }
+        }
+      }
+    ],
+    "edges": [
+      {
+        "sourceNodeID": "100001",
+        "sourcePortID": "",
+        "targetNodeID": "128664"
+      },
+      {
+        "sourceNodeID": "128664",
+        "sourcePortID": "",
+        "targetNodeID": "900001"
+      }
+    ]
+  },
+  "bounds": {
+    "x": -180,
+    "y": -39,
+    "width": 1360,
+    "height": 151
+  }
+}

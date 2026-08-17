@@ -1,0 +1,869 @@
+{
+  "type": "coze-workflow-clipboard-data",
+  "source": {
+    "workflowId": "",
+    "flowMode": 0,
+    "spaceId": "",
+    "isDouyin": false,
+    "host": "www.coze.cn",
+    "workflow_meta": {
+      "category": "图片",
+      "short_name": "根据图表生成分析报告",
+      "desc": "根据图表生成分析报告",
+      "manifest_name": "X26_Wbaogao_word_1",
+      "source_zip": "Workflow-X26_Wbaogao_word_1-draft-1254.zip",
+      "original_file": "Workflow-X026_Wbaogao_word_1-draft-1254-clipboard.pretty.json"
+    }
+  },
+  "json": {
+    "nodes": [
+      {
+        "blocks": [],
+        "data": {
+          "nodeMeta": {
+            "description": "工作流的起始节点，用于设定启动工作流需要的信息",
+            "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Start-v2.jpg",
+            "subTitle": "",
+            "title": "开始"
+          },
+          "outputs": [
+            {
+              "assistType": 1,
+              "name": "file",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "prompt",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "trigger_parameters": [
+            {
+              "assistType": 1,
+              "name": "file",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "prompt",
+              "required": false,
+              "type": "string"
+            }
+          ]
+        },
+        "edges": null,
+        "id": "100001",
+        "meta": {
+          "position": {
+            "x": -1285.918723014577,
+            "y": -149.78048780487802
+          }
+        },
+        "type": "1",
+        "_temp": {
+          "bounds": {
+            "x": -1465.918723014577,
+            "y": -149.78048780487802,
+            "width": 360,
+            "height": 112
+          }
+        }
+      },
+      {
+        "blocks": [],
+        "data": {
+          "inputs": {
+            "inputParameters": [
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": {
+                      "blockID": "153596",
+                      "name": "url",
+                      "source": "block-output"
+                    },
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "ref"
+                  }
+                },
+                "name": "output"
+              }
+            ],
+            "terminatePlan": "returnVariables"
+          },
+          "nodeMeta": {
+            "description": "工作流的最终节点，用于返回工作流运行后的结果信息",
+            "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-End-v2.jpg",
+            "subTitle": "",
+            "title": "结束"
+          }
+        },
+        "edges": null,
+        "id": "900001",
+        "meta": {
+          "position": {
+            "x": 1425.4167203958,
+            "y": -149.78048780487802
+          }
+        },
+        "type": "2",
+        "_temp": {
+          "bounds": {
+            "x": 1245.4167203958,
+            "y": -149.78048780487802,
+            "width": 360,
+            "height": 112
+          }
+        }
+      },
+      {
+        "blocks": [],
+        "data": {
+          "inputs": {
+            "apiParam": [
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "7405805158996934683",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "apiID"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "read",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "apiName"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "7405805158996918299",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "pluginID"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "文件读取",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "pluginName"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "pluginVersion"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "tips"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "outDocLink"
+              }
+            ],
+            "inputDefs": [
+              {
+                "description": "文档链接，不支持ip形式的资源链接，建议将ip形式资源链接转换为域名形式使用",
+                "input": {},
+                "name": "url",
+                "required": true,
+                "type": "string"
+              }
+            ],
+            "inputParameters": [
+              {
+                "input": {
+                  "assistType": 1,
+                  "type": "string",
+                  "value": {
+                    "content": {
+                      "blockID": "100001",
+                      "name": "file",
+                      "source": "block-output"
+                    },
+                    "rawMeta": {
+                      "type": 8
+                    },
+                    "type": "ref"
+                  }
+                },
+                "name": "url"
+              }
+            ],
+            "settingOnError": {
+              "processType": 1,
+              "retryTimes": 0,
+              "timeoutMs": 180000
+            }
+          },
+          "nodeMeta": {
+            "description": "读取文档内容，目前支持html、xml、doc、docx、txt、pdf、csv、xlsx格式",
+            "icon": "https://p3-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/b7145cb1c10d4ed49c883b49c2248437~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd&x-expires=1745796168&x-signature=AJymOxVpgTgMgjiR7weKVNqQs9o%3D",
+            "subtitle": "文件读取:read",
+            "title": "read"
+          },
+          "outputs": [
+            {
+              "name": "code",
+              "required": false,
+              "type": "float"
+            },
+            {
+              "name": "data",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "log_id",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "msg",
+              "required": false,
+              "type": "string"
+            }
+          ]
+        },
+        "edges": null,
+        "id": "122341",
+        "meta": {
+          "position": {
+            "x": -855.2357723577236,
+            "y": -162.78048780487802
+          }
+        },
+        "type": "4",
+        "_temp": {
+          "bounds": {
+            "x": -1035.2357723577236,
+            "y": -162.78048780487802,
+            "width": 360,
+            "height": 112
+          }
+        }
+      },
+      {
+        "blocks": [],
+        "data": {
+          "inputs": {
+            "inputParameters": [
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": {
+                      "blockID": "122341",
+                      "name": "data",
+                      "source": "block-output"
+                    },
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "ref"
+                  }
+                },
+                "name": "input"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": {
+                      "blockID": "100001",
+                      "name": "prompt",
+                      "source": "block-output"
+                    },
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "ref"
+                  }
+                },
+                "name": "prompt"
+              }
+            ],
+            "llmParam": [
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "default_val",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "generationDiversity"
+              },
+              {
+                "input": {
+                  "type": "float",
+                  "value": {
+                    "content": "0.8",
+                    "rawMeta": {
+                      "type": 4
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "temperature"
+              },
+              {
+                "input": {
+                  "type": "integer",
+                  "value": {
+                    "content": "16384",
+                    "rawMeta": {
+                      "type": 2
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "maxTokens"
+              },
+              {
+                "input": {
+                  "type": "integer",
+                  "value": {
+                    "content": "2",
+                    "rawMeta": {
+                      "type": 2
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "responseFormat"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "DeepSeek-V3-0324",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "modleName"
+              },
+              {
+                "input": {
+                  "type": "integer",
+                  "value": {
+                    "content": "1742989917",
+                    "rawMeta": {
+                      "type": 2
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "modelType"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "重点要求：{{prompt}}\n数据：\n{{input}}\n",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "prompt"
+              },
+              {
+                "input": {
+                  "type": "boolean",
+                  "value": {
+                    "content": false,
+                    "rawMeta": {
+                      "type": 3
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "enableChatHistory"
+              },
+              {
+                "input": {
+                  "type": "integer",
+                  "value": {
+                    "content": "3",
+                    "rawMeta": {
+                      "type": 2
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "chatHistoryRound"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "你是一位专业的数据分析师和可视化专家。你的任务是将CSV数据转换为一个美观、专业的HTML分析报告。请遵循以下要求：\n\n1. 数据分析职责：\n- 对输入的CSV数据进行全面分析\n- 识别关键趋势和模式\n- 提供有意义的商业洞察\n- 生成相关统计数据\n\n2. 可视化要求：\n- 使用Chart.js库创建交互式图表\n- 为不同类型的数据选择最合适的图表类型（折线图、柱状图、饼图等）\n- 使用协调的配色方案\n- 确保图表具有清晰的标题和标签\n\n3. HTML报告格式：\n- 使用现代、响应式的设计\n- 包含醒目的标题和简洁的导航\n- 分节展示不同维度的分析\n- 使用Bootstrap样式美化页面\n\n4. 输出格式要求：\n请生成完整的HTML代码，包含：\n- 必要的CSS样式\n- Chart.js库引用\n- 数据可视化JavaScript代码\n- 分析文本和洞察\n\n5. 报告结构：\n- 执行摘要\n- 关键指标展示\n- 详细数据分析\n- 趋势分析\n- 建议和结论\n\n请确保生成的报告既专业又易于理解，适合向管理层汇报。\n\n示例输入：\n[CSV数据]\n\n期望输出：\n完整的HTML报告代码，包含数据可视化和分析洞察。",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "systemPrompt"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "stableSystemPrompt"
+              },
+              {
+                "input": {
+                  "type": "boolean",
+                  "value": {
+                    "content": false,
+                    "rawMeta": {
+                      "type": 3
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "canContinue"
+              }
+            ],
+            "settingOnError": {
+              "processType": 1,
+              "retryTimes": 0,
+              "switch": false,
+              "timeoutMs": 600000
+            }
+          },
+          "nodeMeta": {
+            "description": "调用大语言模型,使用变量和提示词生成回复",
+            "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-LLM-v2.jpg",
+            "subTitle": "大模型",
+            "title": "大模型"
+          },
+          "outputs": [
+            {
+              "name": "output",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "version": "3"
+        },
+        "edges": null,
+        "id": "145182",
+        "meta": {
+          "position": {
+            "x": 64.76422764227641,
+            "y": -188.78048780487802
+          }
+        },
+        "type": "3",
+        "_temp": {
+          "bounds": {
+            "x": -115.23577235772359,
+            "y": -188.78048780487802,
+            "width": 360,
+            "height": 112
+          }
+        }
+      },
+      {
+        "blocks": [],
+        "data": {
+          "inputs": {
+            "apiParam": [
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "7486017394901581876",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "apiID"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "html2url",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "apiName"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "7486017394901565492",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "pluginID"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "发布网页",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "pluginName"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "pluginVersion"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "tips"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "outDocLink"
+              }
+            ],
+            "inputDefs": [
+              {
+                "description": "网页内容",
+                "input": {},
+                "name": "html",
+                "required": true,
+                "type": "string"
+              }
+            ],
+            "inputParameters": [
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": {
+                      "blockID": "145182",
+                      "name": "output",
+                      "source": "block-output"
+                    },
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "ref"
+                  }
+                },
+                "name": "html"
+              }
+            ],
+            "settingOnError": {
+              "processType": 1,
+              "retryTimes": 0,
+              "timeoutMs": 180000
+            }
+          },
+          "nodeMeta": {
+            "description": "上传html内容，生成外网能访问的地址。",
+            "icon": "https://p6-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/da6acc7760c342d9989d6cc37cfa5b9b~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd&x-expires=1745796236&x-signature=UvcDNUVcrH3djXVjnO5CwvzSl%2Fc%3D",
+            "subtitle": "发布网页:html2url",
+            "title": "html2url"
+          },
+          "outputs": [
+            {
+              "name": "message",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "url",
+              "required": false,
+              "type": "string"
+            }
+          ]
+        },
+        "edges": null,
+        "id": "153596",
+        "meta": {
+          "position": {
+            "x": 984.7642276422764,
+            "y": -162.78048780487802
+          }
+        },
+        "type": "4",
+        "_temp": {
+          "bounds": {
+            "x": 804.7642276422764,
+            "y": -162.78048780487802,
+            "width": 360,
+            "height": 112
+          }
+        }
+      },
+      {
+        "blocks": [],
+        "data": {
+          "inputs": {
+            "callTransferVoice": true,
+            "chatHistoryWriting": "historyWrite",
+            "content": {
+              "type": "string",
+              "value": {
+                "content": "表格数据读取完成，报告生成需要1-3分钟，请耐心等待。",
+                "type": "literal"
+              }
+            },
+            "inputParameters": [
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": {
+                      "blockID": "122341",
+                      "name": "data",
+                      "source": "block-output"
+                    },
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "ref"
+                  }
+                },
+                "name": "output"
+              }
+            ],
+            "streamingOutput": false
+          },
+          "nodeMeta": {
+            "description": "节点从“消息”更名为“输出”，支持中间过程的消息输出，支持流式和非流式两种方式",
+            "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Output-v2.jpg",
+            "mainColor": "#5C62FF",
+            "subTitle": "输出",
+            "title": "读取表格数据"
+          }
+        },
+        "edges": null,
+        "id": "132029",
+        "meta": {
+          "position": {
+            "x": -395.2357723577236,
+            "y": -162.78048780487802
+          }
+        },
+        "type": "13",
+        "_temp": {
+          "bounds": {
+            "x": -575.2357723577236,
+            "y": -162.78048780487802,
+            "width": 360,
+            "height": 112
+          }
+        }
+      },
+      {
+        "blocks": [],
+        "data": {
+          "inputs": {
+            "callTransferVoice": true,
+            "chatHistoryWriting": "historyWrite",
+            "content": {
+              "type": "string",
+              "value": {
+                "content": "报告生成完毕，正在上传。",
+                "type": "literal"
+              }
+            },
+            "inputParameters": [
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": {
+                      "blockID": "145182",
+                      "name": "output",
+                      "source": "block-output"
+                    },
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "ref"
+                  }
+                },
+                "name": "output"
+              }
+            ],
+            "streamingOutput": false
+          },
+          "nodeMeta": {
+            "description": "节点从“消息”更名为“输出”，支持中间过程的消息输出，支持流式和非流式两种方式",
+            "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Output-v2.jpg",
+            "mainColor": "#5C62FF",
+            "subTitle": "输出",
+            "title": "开始生成报表"
+          }
+        },
+        "edges": null,
+        "id": "142912",
+        "meta": {
+          "position": {
+            "x": 524.7642276422764,
+            "y": -162.78048780487802
+          }
+        },
+        "type": "13",
+        "_temp": {
+          "bounds": {
+            "x": 344.7642276422764,
+            "y": -162.78048780487802,
+            "width": 360,
+            "height": 112
+          }
+        }
+      }
+    ],
+    "edges": [
+      {
+        "sourceNodeID": "100001",
+        "sourcePortID": "",
+        "targetNodeID": "122341"
+      },
+      {
+        "sourceNodeID": "153596",
+        "sourcePortID": "",
+        "targetNodeID": "900001"
+      },
+      {
+        "sourceNodeID": "122341",
+        "sourcePortID": "",
+        "targetNodeID": "132029"
+      },
+      {
+        "sourceNodeID": "132029",
+        "sourcePortID": "",
+        "targetNodeID": "145182"
+      },
+      {
+        "sourceNodeID": "145182",
+        "sourcePortID": "",
+        "targetNodeID": "142912"
+      },
+      {
+        "sourceNodeID": "142912",
+        "sourcePortID": "",
+        "targetNodeID": "153596"
+      }
+    ]
+  },
+  "bounds": {
+    "x": -1465.918723014577,
+    "y": -188.78048780487802,
+    "width": 3071.3354434103767,
+    "height": 151.0
+  }
+}

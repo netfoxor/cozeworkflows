@@ -1,0 +1,209 @@
+{
+  "type": "coze-workflow-clipboard-data",
+  "source": {
+    "workflowId": "",
+    "flowMode": 0,
+    "spaceId": "",
+    "isDouyin": false,
+    "host": "www.coze.cn",
+    "workflow_meta": {
+      "category": "视频",
+      "short_name": "成年女性角色图片生成舞蹈视频",
+      "desc": "通过成年女性角色图片生成保持角色一致性的舞蹈视频",
+      "manifest_name": "beauty_dance_video",
+      "source_zip": "Workflow-beauty_dance_video-draft-0001.zip"
+    }
+  },
+  "json": {
+    "nodes": [
+      {
+        "blocks": [],
+        "data": {
+          "nodeMeta": {
+            "description": "工作流的起始节点，用于设定启动工作流需要的信息",
+            "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Start-v2.jpg",
+            "subTitle": "",
+            "title": "开始"
+          },
+          "outputs": [
+            {
+              "name": "character_image",
+              "assistType": 2,
+              "type": "string",
+              "required": true
+            }
+          ],
+          "trigger_parameters": [
+            {
+              "name": "character_image",
+              "assistType": 2,
+              "type": "string",
+              "required": true
+            }
+          ]
+        },
+        "edges": null,
+        "id": "100001",
+        "meta": {
+          "position": {
+            "x": -2400,
+            "y": 0
+          }
+        },
+        "type": "1",
+        "_temp": {
+          "bounds": {
+            "x": -2580.0,
+            "y": 0,
+            "width": 360,
+            "height": 112
+          }
+        }
+      },
+      {
+        "blocks": [],
+        "data": {
+          "nodeMeta": {
+            "description": "根据参数传入的成年女性角色图片生成自然流畅的舞蹈视频",
+            "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-VideoGeneration.png",
+            "subTitle": "视频生成",
+            "title": "美女跳舞视频生成",
+            "mainColor": "#3071F2"
+          },
+          "inputs": {
+            "cameraFixed": false,
+            "duration": 5,
+            "firstFrame": {
+              "assistType": 2,
+              "type": "string",
+              "value": {
+                "content": {
+                  "blockID": "100001",
+                  "name": "character_image",
+                  "source": "block-output"
+                },
+                "rawMeta": {
+                  "type": 7
+                },
+                "type": "ref"
+              }
+            },
+            "generateMode": "image2Video",
+            "model": "doubao-seedance-lite",
+            "prompt": "画面中的成年女性角色开始跳舞，动作优美、自然、连贯，保持人物面部、发型、服装和整体身份特征稳定，肢体结构准确，镜头平稳跟随，全身构图，舞台灯光精致，电影级画面质感，不改变人物身份，不出现多余人物，不出现文字或水印",
+            "ratio": "adaptive",
+            "resolution": "480p",
+            "seed": -1,
+            "settingOnError": {
+              "processType": 1,
+              "retryTimes": 0,
+              "timeoutMs": 360000
+            },
+            "inputParameters": []
+          },
+          "outputs": [
+            {
+              "name": "video",
+              "assistType": 10,
+              "type": "string"
+            },
+            {
+              "name": "msg",
+              "type": "string"
+            }
+          ],
+          "settingOnError": {
+            "processType": 1,
+            "retryTimes": 0,
+            "timeoutMs": 360000
+          }
+        },
+        "edges": null,
+        "id": "200001",
+        "meta": {
+          "position": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "type": "65",
+        "_temp": {
+          "bounds": {
+            "x": -180.0,
+            "y": 0,
+            "width": 360,
+            "height": 112
+          }
+        }
+      },
+      {
+        "blocks": [],
+        "data": {
+          "nodeMeta": {
+            "description": "工作流的最终节点，用于返回工作流运行后的结果信息",
+            "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-End-v2.jpg",
+            "subTitle": "",
+            "title": "结束"
+          },
+          "inputs": {
+            "inputParameters": [
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": {
+                      "blockID": "200001",
+                      "name": "video",
+                      "source": "block-output"
+                    },
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "ref"
+                  }
+                },
+                "name": "output"
+              }
+            ],
+            "terminatePlan": "returnVariables"
+          }
+        },
+        "edges": null,
+        "id": "900001",
+        "meta": {
+          "position": {
+            "x": 1200,
+            "y": 0
+          }
+        },
+        "type": "2",
+        "_temp": {
+          "bounds": {
+            "x": 1020.0,
+            "y": 0,
+            "width": 360,
+            "height": 112
+          }
+        }
+      }
+    ],
+    "edges": [
+      {
+        "sourceNodeID": "100001",
+        "sourcePortID": "",
+        "targetNodeID": "200001"
+      },
+      {
+        "sourceNodeID": "200001",
+        "sourcePortID": "",
+        "targetNodeID": "900001"
+      }
+    ]
+  },
+  "bounds": {
+    "x": -2580.0,
+    "y": 0,
+    "width": 3960.0,
+    "height": 112
+  }
+}

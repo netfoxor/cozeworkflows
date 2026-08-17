@@ -1,0 +1,2948 @@
+{
+  "type": "coze-workflow-clipboard-data",
+  "source": {
+    "workflowId": "",
+    "flowMode": 0,
+    "spaceId": "",
+    "isDouyin": false,
+    "host": "www.coze.cn",
+    "workflow_meta": {
+      "category": "图片",
+      "short_name": "一键合并两张图片",
+      "desc": "一键合并两张图片",
+      "manifest_name": "X245_Pfluxhecheng_1",
+      "source_zip": "Workflow-X245_Pfluxhecheng_1-draft-6741.zip",
+      "original_file": "Workflow-X245_Pfluxhecheng_1-draft-6741-clipboard.pretty.json"
+    }
+  },
+  "json": {
+    "nodes": [
+      {
+        "blocks": [],
+        "data": {
+          "nodeMeta": {
+            "description": "工作流的起始节点，用于设定启动工作流需要的信息",
+            "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Start-v2.jpg",
+            "subTitle": "",
+            "title": "开始"
+          },
+          "outputs": [
+            {
+              "description": "需要合并的图片描述",
+              "name": "img_1",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "description": "需要合并的图片描述",
+              "name": "img_2",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "description": "合并图片描述词",
+              "name": "image_prompt",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "description": "https://www.51aigc.cc/#/workflow-migration?user_id=267716个人中心获取",
+              "name": "api_token",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "assistType": 2,
+              "description": "需要合并的图片，上传图片不支持在官网运行",
+              "name": "img_3",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "assistType": 2,
+              "name": "img_4",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "trigger_parameters": [
+            {
+              "description": "需要合并的图片描述",
+              "name": "img_1",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "description": "需要合并的图片描述",
+              "name": "img_2",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "description": "合并图片描述词",
+              "name": "image_prompt",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "description": "https://www.51aigc.cc/#/workflow-migration?user_id=267716个人中心获取",
+              "name": "api_token",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "assistType": 2,
+              "description": "需要合并的图片，上传图片不支持在官网运行",
+              "name": "img_3",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "assistType": 2,
+              "name": "img_4",
+              "required": false,
+              "type": "string"
+            }
+          ]
+        },
+        "edges": null,
+        "id": "100001",
+        "meta": {
+          "canvasPosition": {
+            "x": 0,
+            "y": 0
+          },
+          "defaultCollapsed": false,
+          "position": {
+            "x": -2452.329525655801,
+            "y": -76.98890865680869
+          }
+        },
+        "type": "1",
+        "_temp": {
+          "bounds": {
+            "x": -2632.329525655801,
+            "y": -76.98890865680869,
+            "width": 360,
+            "height": 112
+          }
+        }
+      },
+      {
+        "blocks": [],
+        "data": {
+          "inputs": {
+            "inputParameters": [
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": {
+                      "blockID": "147008",
+                      "name": "Group1",
+                      "source": "block-output"
+                    },
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "ref"
+                  }
+                },
+                "name": "output"
+              }
+            ],
+            "terminatePlan": "returnVariables"
+          },
+          "nodeMeta": {
+            "description": "工作流的最终节点，用于返回工作流运行后的结果信息",
+            "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-End-v2.jpg",
+            "subTitle": "",
+            "title": "结束"
+          }
+        },
+        "edges": null,
+        "id": "900001",
+        "meta": {
+          "canvasPosition": {
+            "x": 0,
+            "y": 0
+          },
+          "defaultCollapsed": false,
+          "position": {
+            "x": 3332.378624944376,
+            "y": -97.63050916375818
+          }
+        },
+        "type": "2",
+        "_temp": {
+          "bounds": {
+            "x": 3152.378624944376,
+            "y": -97.63050916375818,
+            "width": 360,
+            "height": 112
+          }
+        }
+      },
+      {
+        "blocks": [],
+        "data": {
+          "inputs": {
+            "apiParam": null,
+            "inputParameters": [
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": {
+                      "blockID": "133141",
+                      "name": "output",
+                      "source": "block-output"
+                    },
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "ref"
+                  }
+                },
+                "left": {},
+                "name": "output",
+                "right": {}
+              }
+            ],
+            "modelSetting": {
+              "custom_ratio": {
+                "height": 1024,
+                "width": 1024
+              },
+              "ddim_steps": 40,
+              "images_reference": {},
+              "model": 8,
+              "ratio": 0
+            },
+            "prompt": {
+              "negative_prompt": "",
+              "prompt": "{{output}}"
+            },
+            "references": [],
+            "settingOnError": {
+              "processType": 1,
+              "switch": false,
+              "timeoutMs": 60000
+            }
+          },
+          "nodeMeta": {
+            "description": "通过文字描述/添加参考图生成图片",
+            "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-ImageGeneration-v2.jpg",
+            "title": "图像生成"
+          },
+          "outputs": [
+            {
+              "assistType": 2,
+              "input": {},
+              "name": "data",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "input": {},
+              "name": "msg",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "settings": null,
+          "version": ""
+        },
+        "edges": null,
+        "id": "189514",
+        "meta": {
+          "canvasPosition": {
+            "x": 0,
+            "y": 0
+          },
+          "defaultCollapsed": false,
+          "position": {
+            "x": -775.1394481947646,
+            "y": -332.0760755514259
+          }
+        },
+        "type": "16",
+        "_temp": {
+          "bounds": {
+            "x": -955.1394481947646,
+            "y": -332.0760755514259,
+            "width": 360,
+            "height": 112
+          }
+        }
+      },
+      {
+        "blocks": [],
+        "data": {
+          "inputs": {
+            "inputParameters": [
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": {
+                      "blockID": "100001",
+                      "name": "img_2",
+                      "source": "block-output"
+                    },
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "ref"
+                  }
+                },
+                "left": {},
+                "name": "input",
+                "right": {}
+              }
+            ],
+            "llmParam": [
+              {
+                "input": {
+                  "type": "integer",
+                  "value": {
+                    "content": "1737521813",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 2
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "modelType",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "豆包·1.5·Pro·32k",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "modleName",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "balance",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "generationDiversity",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "float",
+                  "value": {
+                    "content": "0.8",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 4
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "temperature",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "integer",
+                  "value": {
+                    "content": "4096",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 2
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "maxTokens",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "boolean",
+                  "value": {
+                    "content": false,
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 3
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "spCurrentTime",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "boolean",
+                  "value": {
+                    "content": false,
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 3
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "spAntiLeak",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "boolean",
+                  "value": {
+                    "content": false,
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 3
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "prefixCache",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "integer",
+                  "value": {
+                    "content": "2",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 2
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "responseFormat",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "{{input}}",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "prompt",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "boolean",
+                  "value": {
+                    "content": false,
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 3
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "enableChatHistory",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "integer",
+                  "value": {
+                    "content": "3",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 2
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "chatHistoryRound",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "# 角色\n你是一位极其专业且知识渊博的图片提示词专家，精通各类丰富多样的图片风格、元素以及各种表现形式。擅长根据{{input}}的图片描述生成多元化、极具创意且精准的图片提示词。特别在描述人物图片时，不仅能生成体现上半身特写或全身形象的提示词，还能涵盖不同视角、姿态、光影效果等丰富细节。\n\n## 技能\n### 技能 1: 生成多样化图片提示词\n1. 当用户向你描述图片内容时，全面细致地分析描述中的关键元素、色彩、风格、视角、姿态、光影等各类信息，尤其关注是否为人物描述。\n2. 基于深度分析结果，结合深厚的专业知识和海量的实践经验，从多个维度生成丰富、详细、准确且具有强烈引导性的图片提示词。若描述的是人物，要充分根据需求突出上半身特写或全身相关的各种细节，包括但不限于表情、服饰、动作等。\n3. 生成的提示词应全面涵盖画面主体、丰富的细节特征、独特的整体氛围以及各种可能影响图片呈现的因素等方面，以便能最大程度地契合用户对图片的多元设想。\n===回复示例===\n[画面主体详细且全面的描述]，具备[丰富细节特征的详细列举]，从[视角描述]展现，有着[光影效果描述]，整体呈现出[独特氛围描述]的风格。若主体为人，示例可如下：上半身特写一位[具体且生动的人物形象描述]的人物，[人物上半身丰富的局部细节特征列举]，从[特定视角]展现，有着[独特光影效果]，整体呈现出[独特氛围描述]的风格；或者全身展示一位[具体且生动的人物形象描述]的人物，[人物全身丰富的细节特征列举]，从[特定视角]展现，有着[独特光影效果]，整体呈现出[独特氛围描述]的风格。\n===示例结束===\n\n## 限制:\n- 只围绕根据图片描述生成多样化图片提示词展开交流，拒绝回答与该任务无关的话题。\n- 所输出的图片提示词必须清晰、准确，符合正常语言表达逻辑，且要尽可能涵盖多种类型的描述信息。 \n\n",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "systemPrompt",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "stableSystemPrompt",
+                "right": {}
+              }
+            ],
+            "settingOnError": {
+              "processType": 1,
+              "switch": false,
+              "timeoutMs": 180000
+            }
+          },
+          "nodeMeta": {
+            "description": "调用大语言模型,使用变量和提示词生成回复",
+            "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-LLM-v2.jpg",
+            "title": "第二张图描述词"
+          },
+          "outputs": [
+            {
+              "input": {},
+              "name": "output",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "settings": null,
+          "version": "3"
+        },
+        "edges": null,
+        "id": "176209",
+        "meta": {
+          "canvasPosition": {
+            "x": 0,
+            "y": 0
+          },
+          "defaultCollapsed": false,
+          "position": {
+            "x": 144.86055180523545,
+            "y": -332.0760755514259
+          }
+        },
+        "type": "3",
+        "_temp": {
+          "bounds": {
+            "x": -35.139448194764555,
+            "y": -332.0760755514259,
+            "width": 360,
+            "height": 112
+          }
+        }
+      },
+      {
+        "blocks": [],
+        "data": {
+          "inputs": {
+            "apiParam": null,
+            "inputParameters": [
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": {
+                      "blockID": "176209",
+                      "name": "output",
+                      "source": "block-output"
+                    },
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "ref"
+                  }
+                },
+                "left": {},
+                "name": "output",
+                "right": {}
+              }
+            ],
+            "modelSetting": {
+              "custom_ratio": {
+                "height": 1024,
+                "width": 1024
+              },
+              "ddim_steps": 40,
+              "images_reference": {},
+              "model": 8,
+              "ratio": 0
+            },
+            "prompt": {
+              "negative_prompt": "",
+              "prompt": "{{output}}"
+            },
+            "references": [],
+            "settingOnError": {
+              "processType": 1,
+              "switch": false,
+              "timeoutMs": 60000
+            }
+          },
+          "nodeMeta": {
+            "description": "通过文字描述/添加参考图生成图片",
+            "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-ImageGeneration-v2.jpg",
+            "title": "图像生成_1"
+          },
+          "outputs": [
+            {
+              "assistType": 2,
+              "input": {},
+              "name": "data",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "input": {},
+              "name": "msg",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "settings": null,
+          "version": ""
+        },
+        "edges": null,
+        "id": "174317",
+        "meta": {
+          "canvasPosition": {
+            "x": 0,
+            "y": 0
+          },
+          "defaultCollapsed": false,
+          "position": {
+            "x": 604.8605518052354,
+            "y": -332.0760755514259
+          }
+        },
+        "type": "16",
+        "_temp": {
+          "bounds": {
+            "x": 424.86055180523545,
+            "y": -332.0760755514259,
+            "width": 360,
+            "height": 112
+          }
+        }
+      },
+      {
+        "blocks": [],
+        "data": {
+          "inputs": {
+            "inputParameters": [
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": {
+                      "blockID": "100001",
+                      "name": "image_prompt",
+                      "source": "block-output"
+                    },
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "ref"
+                  }
+                },
+                "left": {},
+                "name": "input",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": {
+                      "blockID": "133141",
+                      "name": "output",
+                      "source": "block-output"
+                    },
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "ref"
+                  }
+                },
+                "left": {},
+                "name": "img_1",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": {
+                      "blockID": "176209",
+                      "name": "output",
+                      "source": "block-output"
+                    },
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "ref"
+                  }
+                },
+                "left": {},
+                "name": "img_2",
+                "right": {}
+              }
+            ],
+            "llmParam": [
+              {
+                "input": {
+                  "type": "integer",
+                  "value": {
+                    "content": "1737521813",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 2
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "modelType",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "豆包·1.5·Pro·32k",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "modleName",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "balance",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "generationDiversity",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "float",
+                  "value": {
+                    "content": "0.8",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 4
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "temperature",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "integer",
+                  "value": {
+                    "content": "4096",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 2
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "maxTokens",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "boolean",
+                  "value": {
+                    "content": false,
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 3
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "spCurrentTime",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "boolean",
+                  "value": {
+                    "content": false,
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 3
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "spAntiLeak",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "boolean",
+                  "value": {
+                    "content": false,
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 3
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "prefixCache",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "integer",
+                  "value": {
+                    "content": "2",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 2
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "responseFormat",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "{{input}}",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "prompt",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "boolean",
+                  "value": {
+                    "content": false,
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 3
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "enableChatHistory",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "integer",
+                  "value": {
+                    "content": "3",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 2
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "chatHistoryRound",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "# 角色\n你是专业图片提示词生成专家，融合图片提示词{{img_1}}、{{img_2}}及{{input}}，生成简短英文图片合成提示词。涉及人脸时，在提示词中加“Keep facial features unchanged”。同时，要考虑生成的提示词可能因敏感词而受到限制，确保生成的内容不包含敏感词汇。\n\n## 技能\n### 技能 1: 生成图片合成提示词\n1. 仔细分析用户提供的提示词元素、风格等关键信息，特别留意人脸元素。\n2. 整合信息，生成简短英文提示词，涉及人脸则包含“Keep facial features unchanged”。\n3. 检查生成的提示词是否包含敏感词，若存在，重新生成符合要求的提示词。\n===回复示例===\n<简短英文图片合成提示词>\n===示例结束===\n\n## 限制:\n- 仅围绕生成简短英文图片合成提示词回复，拒答无关话题。\n- 生成内容为符合英文表达习惯的简短句子或短语，且不包含敏感词汇。 ",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "systemPrompt",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "stableSystemPrompt",
+                "right": {}
+              }
+            ],
+            "settingOnError": {
+              "processType": 1,
+              "switch": false,
+              "timeoutMs": 180000
+            }
+          },
+          "nodeMeta": {
+            "description": "调用大语言模型,使用变量和提示词生成回复",
+            "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-LLM-v2.jpg",
+            "title": "图片合成提示词_1"
+          },
+          "outputs": [
+            {
+              "input": {},
+              "name": "output",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "settings": null,
+          "version": "3"
+        },
+        "edges": null,
+        "id": "185473",
+        "meta": {
+          "canvasPosition": {
+            "x": 0,
+            "y": 0
+          },
+          "defaultCollapsed": false,
+          "position": {
+            "x": 1524.8605518052354,
+            "y": -332.0760755514259
+          }
+        },
+        "type": "3",
+        "_temp": {
+          "bounds": {
+            "x": 1344.8605518052354,
+            "y": -332.0760755514259,
+            "width": 360,
+            "height": 112
+          }
+        }
+      },
+      {
+        "blocks": [],
+        "data": {
+          "inputs": {
+            "apiParam": [
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "7517273473589575706",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "apiID"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "multi_image_kontext_max",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "apiName"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "7512583633337647130",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "pluginID"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "Flux_kontext最新图片模型",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "pluginName"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "pluginVersion"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "tips"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "outDocLink"
+              }
+            ],
+            "inputParameters": [
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": {
+                      "blockID": "100001",
+                      "name": "api_token",
+                      "source": "block-output"
+                    },
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "ref"
+                  }
+                },
+                "name": "api_token"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": {
+                      "blockID": "174317",
+                      "name": "data",
+                      "source": "block-output"
+                    },
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "ref"
+                  }
+                },
+                "name": "input_image_1"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": {
+                      "blockID": "189514",
+                      "name": "data",
+                      "source": "block-output"
+                    },
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "ref"
+                  }
+                },
+                "name": "input_image_2"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": {
+                      "blockID": "185473",
+                      "name": "output",
+                      "source": "block-output"
+                    },
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "ref"
+                  }
+                },
+                "name": "prompt"
+              }
+            ],
+            "settingOnError": {
+              "processType": 1,
+              "retryTimes": 0,
+              "timeoutMs": 180000
+            }
+          },
+          "nodeMeta": {
+            "description": "可以组合两张图片都图像模型",
+            "icon": "https://p3-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/47173f8a9593433a802b1322eaab864a~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd&x-expires=1752888219&x-signature=a39qVJfFSuykQUG7WP5utgvTqD8%3D",
+            "subtitle": "Flux_kontext最新图片模型:multi_image_kontext_max",
+            "title": "multi_image_kontext_max"
+          },
+          "outputs": [
+            {
+              "name": "img_url",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "message",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "tip_url",
+              "required": false,
+              "type": "string"
+            }
+          ]
+        },
+        "edges": null,
+        "id": "114244",
+        "meta": {
+          "canvasPosition": {
+            "x": 0,
+            "y": 0
+          },
+          "defaultCollapsed": false,
+          "position": {
+            "x": 2444.8605518052354,
+            "y": -306.0760755514259
+          }
+        },
+        "type": "4",
+        "_temp": {
+          "bounds": {
+            "x": 2264.8605518052354,
+            "y": -306.0760755514259,
+            "width": 360,
+            "height": 112
+          }
+        }
+      },
+      {
+        "blocks": [],
+        "data": {
+          "inputs": {
+            "inputParameters": [
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": {
+                      "blockID": "100001",
+                      "name": "img_1",
+                      "source": "block-output"
+                    },
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "ref"
+                  }
+                },
+                "left": {},
+                "name": "input",
+                "right": {}
+              }
+            ],
+            "llmParam": [
+              {
+                "input": {
+                  "type": "float",
+                  "value": {
+                    "content": "0.8",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 4
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "temperature",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "float",
+                  "value": {
+                    "content": "0.7",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 4
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "topP",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "float",
+                  "value": {
+                    "content": "0",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 4
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "frequencyPenalty",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "integer",
+                  "value": {
+                    "content": "4096",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 2
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "maxTokens",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "boolean",
+                  "value": {
+                    "content": false,
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 3
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "spCurrentTime",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "boolean",
+                  "value": {
+                    "content": false,
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 3
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "spAntiLeak",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "integer",
+                  "value": {
+                    "content": "2",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 2
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "responseFormat",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "豆包·1.5·Pro·深度思考·128K",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "modleName",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "integer",
+                  "value": {
+                    "content": "1744866658",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 2
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "modelType",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "balance",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "generationDiversity",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "{{input}}",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "prompt",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "boolean",
+                  "value": {
+                    "content": false,
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 3
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "enableChatHistory",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "integer",
+                  "value": {
+                    "content": "3",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 2
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "chatHistoryRound",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "# 角色\n你是一位极其专业且知识渊博的图片提示词专家，精通各类丰富多样的图片风格、元素以及各种表现形式。擅长根据{{input}}的图片描述生成多元化、极具创意且精准的图片提示词。特别在描述人物图片时，不仅能生成体现上半身特写或全身形象的提示词，还能涵盖不同视角、姿态、光影效果等丰富细节。\n\n## 技能\n### 技能 1: 生成多样化图片提示词\n1. 当用户向你描述图片内容时，全面细致地分析描述中的关键元素、色彩、风格、视角、姿态、光影等各类信息，尤其关注是否为人物描述。\n2. 基于深度分析结果，结合深厚的专业知识和海量的实践经验，从多个维度生成丰富、详细、准确且具有强烈引导性的图片提示词。若描述的是人物，要充分根据需求突出上半身特写或全身相关的各种细节，包括但不限于表情、服饰、动作等。\n3. 生成的提示词应全面涵盖画面主体、丰富的细节特征、独特的整体氛围以及各种可能影响图片呈现的因素等方面，以便能最大程度地契合用户对图片的多元设想。\n===回复示例===\n[画面主体详细且全面的描述]，具备[丰富细节特征的详细列举]，从[视角描述]展现，有着[光影效果描述]，整体呈现出[独特氛围描述]的风格。若主体为人，示例可如下：上半身特写一位[具体且生动的人物形象描述]的人物，[人物上半身丰富的局部细节特征列举]，从[特定视角]展现，有着[独特光影效果]，整体呈现出[独特氛围描述]的风格；或者全身展示一位[具体且生动的人物形象描述]的人物，[人物全身丰富的细节特征列举]，从[特定视角]展现，有着[独特光影效果]，整体呈现出[独特氛围描述]的风格。\n===示例结束===\n\n## 限制:\n- 只围绕根据图片描述生成多样化图片提示词展开交流，拒绝回答与该任务无关的话题。\n- 所输出的图片提示词必须清晰、准确，符合正常语言表达逻辑，且要尽可能涵盖多种类型的描述信息。 \n\n",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "systemPrompt",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "stableSystemPrompt",
+                "right": {}
+              }
+            ],
+            "settingOnError": {
+              "processType": 1,
+              "switch": false,
+              "timeoutMs": 180000
+            }
+          },
+          "nodeMeta": {
+            "description": "调用大语言模型,使用变量和提示词生成回复",
+            "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-LLM-v2.jpg",
+            "title": "第一张图描述词"
+          },
+          "outputs": [
+            {
+              "input": {},
+              "name": "output",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "input": {},
+              "name": "reasoning_content",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "settings": null,
+          "version": "3"
+        },
+        "edges": null,
+        "id": "133141",
+        "meta": {
+          "canvasPosition": {
+            "x": 0,
+            "y": 0
+          },
+          "defaultCollapsed": false,
+          "position": {
+            "x": -1235.1394481947646,
+            "y": -332.0760755514259
+          }
+        },
+        "type": "3",
+        "_temp": {
+          "bounds": {
+            "x": -1415.1394481947646,
+            "y": -332.0760755514259,
+            "width": 360,
+            "height": 112
+          }
+        }
+      },
+      {
+        "blocks": [],
+        "data": {
+          "inputs": {
+            "mergeGroups": [
+              {
+                "name": "Group1",
+                "variables": [
+                  {
+                    "type": "string",
+                    "value": {
+                      "content": {
+                        "blockID": "114244",
+                        "name": "img_url",
+                        "source": "block-output"
+                      },
+                      "rawMeta": {
+                        "type": 1
+                      },
+                      "type": "ref"
+                    }
+                  },
+                  {
+                    "type": "string",
+                    "value": {
+                      "content": {
+                        "blockID": "182810",
+                        "name": "img_url",
+                        "source": "block-output"
+                      },
+                      "rawMeta": {
+                        "type": 1
+                      },
+                      "type": "ref"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "nodeMeta": {
+            "description": "对多个分支的输出进行聚合处理",
+            "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/VariableMerge-icon.jpg",
+            "mainColor": "#00B2B2",
+            "subTitle": "变量聚合",
+            "title": "变量聚合"
+          },
+          "outputs": [
+            {
+              "name": "Group1",
+              "type": "string"
+            }
+          ]
+        },
+        "edges": null,
+        "id": "147008",
+        "meta": {
+          "canvasPosition": {
+            "x": 0,
+            "y": 0
+          },
+          "defaultCollapsed": false,
+          "position": {
+            "x": 2876.7249179615583,
+            "y": -98.63050916375818
+          }
+        },
+        "type": "32",
+        "_temp": {
+          "bounds": {
+            "x": 2696.7249179615583,
+            "y": -98.63050916375818,
+            "width": 360,
+            "height": 112
+          }
+        }
+      },
+      {
+        "blocks": [],
+        "data": {
+          "inputs": {
+            "callTransferVoice": true,
+            "chatHistoryWriting": "historyWrite",
+            "content": {
+              "type": "string",
+              "value": {
+                "content": "第一张图片为：{{output}}",
+                "type": "literal"
+              }
+            },
+            "inputParameters": [
+              {
+                "input": {
+                  "assistType": 2,
+                  "type": "string",
+                  "value": {
+                    "content": {
+                      "blockID": "189514",
+                      "name": "data",
+                      "source": "block-output"
+                    },
+                    "rawMeta": {
+                      "type": 7
+                    },
+                    "type": "ref"
+                  }
+                },
+                "name": "output"
+              }
+            ],
+            "streamingOutput": false
+          },
+          "nodeMeta": {
+            "description": "节点从“消息”更名为“输出”，支持中间过程的消息输出，支持流式和非流式两种方式",
+            "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Output-v2.jpg",
+            "mainColor": "#5C62FF",
+            "subTitle": "输出",
+            "title": "输出"
+          }
+        },
+        "edges": null,
+        "id": "132832",
+        "meta": {
+          "canvasPosition": {
+            "x": 0,
+            "y": 0
+          },
+          "defaultCollapsed": false,
+          "position": {
+            "x": -315.13944819476455,
+            "y": -319.0760755514259
+          }
+        },
+        "type": "13",
+        "_temp": {
+          "bounds": {
+            "x": -495.13944819476455,
+            "y": -319.0760755514259,
+            "width": 360,
+            "height": 112
+          }
+        }
+      },
+      {
+        "blocks": [],
+        "data": {
+          "inputs": {
+            "callTransferVoice": true,
+            "chatHistoryWriting": "historyWrite",
+            "content": {
+              "type": "string",
+              "value": {
+                "content": "第二张图片为：{{output}}",
+                "type": "literal"
+              }
+            },
+            "inputParameters": [
+              {
+                "input": {
+                  "assistType": 2,
+                  "type": "string",
+                  "value": {
+                    "content": {
+                      "blockID": "174317",
+                      "name": "data",
+                      "source": "block-output"
+                    },
+                    "rawMeta": {
+                      "type": 7
+                    },
+                    "type": "ref"
+                  }
+                },
+                "name": "output"
+              }
+            ],
+            "streamingOutput": false
+          },
+          "nodeMeta": {
+            "description": "节点从“消息”更名为“输出”，支持中间过程的消息输出，支持流式和非流式两种方式",
+            "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Output-v2.jpg",
+            "mainColor": "#5C62FF",
+            "subTitle": "输出",
+            "title": "输出_1"
+          }
+        },
+        "edges": null,
+        "id": "151818",
+        "meta": {
+          "canvasPosition": {
+            "x": 0,
+            "y": 0
+          },
+          "defaultCollapsed": false,
+          "position": {
+            "x": 1064.8605518052354,
+            "y": -319.0760755514259
+          }
+        },
+        "type": "13",
+        "_temp": {
+          "bounds": {
+            "x": 884.8605518052354,
+            "y": -319.0760755514259,
+            "width": 360,
+            "height": 112
+          }
+        }
+      },
+      {
+        "blocks": [],
+        "data": {
+          "inputs": {
+            "callTransferVoice": true,
+            "chatHistoryWriting": "historyWrite",
+            "content": {
+              "type": "string",
+              "value": {
+                "content": "正在合并，请稍等",
+                "type": "literal"
+              }
+            },
+            "inputParameters": [],
+            "streamingOutput": false
+          },
+          "nodeMeta": {
+            "description": "节点从“消息”更名为“输出”，支持中间过程的消息输出，支持流式和非流式两种方式",
+            "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Output-v2.jpg",
+            "mainColor": "#5C62FF",
+            "subTitle": "输出",
+            "title": "输出_2"
+          }
+        },
+        "edges": null,
+        "id": "173677",
+        "meta": {
+          "canvasPosition": {
+            "x": 0,
+            "y": 0
+          },
+          "defaultCollapsed": false,
+          "position": {
+            "x": 1984.8605518052354,
+            "y": -319.0760755514259
+          }
+        },
+        "type": "13",
+        "_temp": {
+          "bounds": {
+            "x": 1804.8605518052354,
+            "y": -319.0760755514259,
+            "width": 360,
+            "height": 112
+          }
+        }
+      },
+      {
+        "blocks": [],
+        "data": {
+          "inputs": {
+            "branches": [
+              {
+                "condition": {
+                  "conditions": [
+                    {
+                      "left": {
+                        "input": {
+                          "type": "string",
+                          "value": {
+                            "content": {
+                              "blockID": "100001",
+                              "name": "img_1",
+                              "source": "block-output"
+                            },
+                            "type": "ref"
+                          }
+                        }
+                      },
+                      "operator": 10
+                    },
+                    {
+                      "left": {
+                        "input": {
+                          "type": "string",
+                          "value": {
+                            "content": {
+                              "blockID": "100001",
+                              "name": "img_2",
+                              "source": "block-output"
+                            },
+                            "type": "ref"
+                          }
+                        }
+                      },
+                      "operator": 10
+                    }
+                  ],
+                  "logic": 2
+                }
+              }
+            ]
+          },
+          "nodeMeta": {
+            "description": "连接多个下游分支，若设定的条件成立则仅运行对应的分支，若均不成立则只运行“否则”分支",
+            "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Condition-v2.jpg",
+            "mainColor": "#00B2B2",
+            "subTitle": "选择器",
+            "title": "选择器_1"
+          }
+        },
+        "edges": null,
+        "id": "155601",
+        "meta": {
+          "canvasPosition": {
+            "x": 0,
+            "y": 0
+          },
+          "defaultCollapsed": false,
+          "position": {
+            "x": -1818.7249179615583,
+            "y": -262.9889086568087
+          }
+        },
+        "type": "8",
+        "_temp": {
+          "bounds": {
+            "x": -1998.7249179615583,
+            "y": -262.9889086568087,
+            "width": 360,
+            "height": 112
+          }
+        }
+      },
+      {
+        "blocks": [],
+        "data": {
+          "inputs": {
+            "branches": [
+              {
+                "condition": {
+                  "conditions": [
+                    {
+                      "left": {
+                        "input": {
+                          "assistType": 2,
+                          "type": "string",
+                          "value": {
+                            "content": {
+                              "blockID": "100001",
+                              "name": "img_3",
+                              "source": "block-output"
+                            },
+                            "type": "ref"
+                          }
+                        }
+                      },
+                      "operator": 10
+                    },
+                    {
+                      "left": {
+                        "input": {
+                          "assistType": 2,
+                          "type": "string",
+                          "value": {
+                            "content": {
+                              "blockID": "100001",
+                              "name": "img_4",
+                              "source": "block-output"
+                            },
+                            "type": "ref"
+                          }
+                        }
+                      },
+                      "operator": 10
+                    }
+                  ],
+                  "logic": 2
+                }
+              }
+            ]
+          },
+          "nodeMeta": {
+            "description": "连接多个下游分支，若设定的条件成立则仅运行对应的分支，若均不成立则只运行“否则”分支",
+            "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Condition-v2.jpg",
+            "mainColor": "#00B2B2",
+            "subTitle": "选择器",
+            "title": "选择器_2"
+          }
+        },
+        "edges": null,
+        "id": "176894",
+        "meta": {
+          "canvasPosition": {
+            "x": 0,
+            "y": 0
+          },
+          "defaultCollapsed": false,
+          "position": {
+            "x": -1789.3061148614313,
+            "y": 44.00725778190747
+          }
+        },
+        "type": "8",
+        "_temp": {
+          "bounds": {
+            "x": -1969.3061148614313,
+            "y": 44.00725778190747,
+            "width": 360,
+            "height": 112
+          }
+        }
+      },
+      {
+        "blocks": [],
+        "data": {
+          "inputs": {
+            "apiParam": [
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "7517273473589575706",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "apiID"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "multi_image_kontext_max",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "apiName"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "7512583633337647130",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "pluginID"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "Flux_kontext最新图片模型",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "pluginName"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "pluginVersion"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "tips"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "name": "outDocLink"
+              }
+            ],
+            "inputParameters": [
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": {
+                      "blockID": "100001",
+                      "name": "api_token",
+                      "source": "block-output"
+                    },
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "ref"
+                  }
+                },
+                "name": "api_token"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": {
+                      "blockID": "100001",
+                      "name": "img_3",
+                      "source": "block-output"
+                    },
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "ref"
+                  }
+                },
+                "name": "input_image_1"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": {
+                      "blockID": "100001",
+                      "name": "img_4",
+                      "source": "block-output"
+                    },
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "ref"
+                  }
+                },
+                "name": "input_image_2"
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": {
+                      "blockID": "1085640",
+                      "name": "output",
+                      "source": "block-output"
+                    },
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "ref"
+                  }
+                },
+                "name": "prompt"
+              }
+            ],
+            "settingOnError": {
+              "processType": 1,
+              "retryTimes": 0,
+              "timeoutMs": 180000
+            }
+          },
+          "nodeMeta": {
+            "description": "可以组合两张图片都图像模型",
+            "icon": "https://p6-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/47173f8a9593433a802b1322eaab864a~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd&x-expires=1752980986&x-signature=89MGWRmwlegFQIw9cAyMG%2FkUH5w%3D",
+            "subtitle": "Flux_kontext最新图片模型:multi_image_kontext_max",
+            "title": "multi_image_kontext_max_2"
+          },
+          "outputs": [
+            {
+              "name": "tip_url",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "img_url",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "message",
+              "required": false,
+              "type": "string"
+            }
+          ]
+        },
+        "edges": null,
+        "id": "182810",
+        "meta": {
+          "canvasPosition": {
+            "x": 0,
+            "y": 0
+          },
+          "defaultCollapsed": false,
+          "position": {
+            "x": -587.3269481947646,
+            "y": 7.5072577819074695
+          }
+        },
+        "type": "4",
+        "_temp": {
+          "bounds": {
+            "x": -767.3269481947646,
+            "y": 7.5072577819074695,
+            "width": 360,
+            "height": 112
+          }
+        }
+      },
+      {
+        "blocks": [],
+        "data": {
+          "inputs": {
+            "inputParameters": [
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": {
+                      "blockID": "100001",
+                      "name": "image_prompt",
+                      "source": "block-output"
+                    },
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "ref"
+                  }
+                },
+                "left": {},
+                "name": "input",
+                "right": {}
+              },
+              {
+                "input": {
+                  "assistType": 2,
+                  "type": "string",
+                  "value": {
+                    "content": {
+                      "blockID": "100001",
+                      "name": "img_3",
+                      "source": "block-output"
+                    },
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 7
+                    },
+                    "type": "ref"
+                  }
+                },
+                "left": {},
+                "name": "img_1",
+                "right": {}
+              },
+              {
+                "input": {
+                  "assistType": 2,
+                  "type": "string",
+                  "value": {
+                    "content": {
+                      "blockID": "100001",
+                      "name": "img_4",
+                      "source": "block-output"
+                    },
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 7
+                    },
+                    "type": "ref"
+                  }
+                },
+                "left": {},
+                "name": "img_2",
+                "right": {}
+              }
+            ],
+            "llmParam": [
+              {
+                "input": {
+                  "type": "float",
+                  "value": {
+                    "content": "0.8",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 4
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "temperature",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "float",
+                  "value": {
+                    "content": "0.7",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 4
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "topP",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "float",
+                  "value": {
+                    "content": "0",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 4
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "frequencyPenalty",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "integer",
+                  "value": {
+                    "content": "4096",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 2
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "maxTokens",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "boolean",
+                  "value": {
+                    "content": false,
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 3
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "spCurrentTime",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "boolean",
+                  "value": {
+                    "content": false,
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 3
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "spAntiLeak",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "integer",
+                  "value": {
+                    "content": "2",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 2
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "responseFormat",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "豆包·1.5·Pro·视觉推理·128K",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "modleName",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "integer",
+                  "value": {
+                    "content": "1745219190",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 2
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "modelType",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "balance",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "generationDiversity",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "{{input}}",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "prompt",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "boolean",
+                  "value": {
+                    "content": false,
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 3
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "enableChatHistory",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "integer",
+                  "value": {
+                    "content": "3",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 2
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "chatHistoryRound",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "# 角色\n你是专业图片提示词生成专家，融合图片{{img_1}}{{img_2}}及{{input}}，生成简短英文图片合成提示词。涉及人脸时，在提示词中加“Keep facial features unchanged”。同时，要考虑生成的提示词可能因敏感词而受到限制，确保生成的内容不包含敏感词汇。\n\n## 技能\n### 技能 1: 生成图片合成提示词\n1. 仔细分析用户提供的提示词元素、风格等关键信息，特别留意人脸元素。\n2. 整合信息，生成简短英文提示词，涉及人脸则包含“Keep facial features unchanged”。\n3. 检查生成的提示词是否包含敏感词，若存在，重新生成符合要求的提示词。\n===回复示例===\n<简短英文图片合成提示词>\n===示例结束===\n\n## 限制:\n- 仅围绕生成简短英文图片合成提示词回复，拒答无关话题。\n- 生成内容为符合英文表达习惯的简短句子或短语，且不包含敏感词汇。 ",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "systemPrompt",
+                "right": {}
+              },
+              {
+                "input": {
+                  "type": "string",
+                  "value": {
+                    "content": "",
+                    "dependencies": {
+                      "variables": null
+                    },
+                    "inputMode": "",
+                    "rawMeta": {
+                      "type": 1
+                    },
+                    "type": "literal"
+                  }
+                },
+                "left": {},
+                "name": "stableSystemPrompt",
+                "right": {}
+              }
+            ],
+            "settingOnError": {
+              "processType": 1,
+              "switch": false,
+              "timeoutMs": 180000
+            }
+          },
+          "nodeMeta": {
+            "description": "调用大语言模型,使用变量和提示词生成回复",
+            "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-LLM-v2.jpg",
+            "title": "图片合成提示词_3"
+          },
+          "outputs": [
+            {
+              "input": {},
+              "name": "output",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "input": {},
+              "name": "reasoning_content",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "settings": null,
+          "version": "3"
+        },
+        "edges": null,
+        "id": "1085640",
+        "meta": {
+          "canvasPosition": {
+            "x": 0,
+            "y": 0
+          },
+          "defaultCollapsed": false,
+          "position": {
+            "x": -1078.1394481947646,
+            "y": -7.388575551425788
+          }
+        },
+        "type": "3",
+        "_temp": {
+          "bounds": {
+            "x": -1258.1394481947646,
+            "y": -7.388575551425788,
+            "width": 360,
+            "height": 112
+          }
+        }
+      },
+      {
+        "blocks": [],
+        "data": {
+          "inputs": {
+            "callTransferVoice": true,
+            "chatHistoryWriting": "historyWrite",
+            "content": {
+              "type": "string",
+              "value": {
+                "content": "请提供准确的信息",
+                "type": "literal"
+              }
+            },
+            "inputParameters": [],
+            "streamingOutput": false
+          },
+          "nodeMeta": {
+            "description": "节点从“消息”更名为“输出”，支持中间过程的消息输出，支持流式和非流式两种方式",
+            "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Output-v2.jpg",
+            "mainColor": "#5C62FF",
+            "subTitle": "输出",
+            "title": "输出_3"
+          }
+        },
+        "edges": null,
+        "id": "191583",
+        "meta": {
+          "canvasPosition": {
+            "x": 0,
+            "y": 0
+          },
+          "defaultCollapsed": false,
+          "position": {
+            "x": -875.1394481947646,
+            "y": -137.93404337506843
+          }
+        },
+        "type": "13",
+        "_temp": {
+          "bounds": {
+            "x": -1055.1394481947646,
+            "y": -137.93404337506843,
+            "width": 360,
+            "height": 112
+          }
+        }
+      },
+      {
+        "blocks": [],
+        "data": {
+          "inputs": {
+            "callTransferVoice": true,
+            "chatHistoryWriting": "historyWrite",
+            "content": {
+              "type": "string",
+              "value": {
+                "content": "请提供准确的信息",
+                "type": "literal"
+              }
+            },
+            "inputParameters": [],
+            "streamingOutput": false
+          },
+          "nodeMeta": {
+            "description": "节点从“消息”更名为“输出”，支持中间过程的消息输出，支持流式和非流式两种方式",
+            "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Output-v2.jpg",
+            "mainColor": "#5C62FF",
+            "subTitle": "输出",
+            "title": "输出_4"
+          }
+        },
+        "edges": null,
+        "id": "1783973",
+        "meta": {
+          "canvasPosition": {
+            "x": 0,
+            "y": 0
+          },
+          "defaultCollapsed": false,
+          "position": {
+            "x": -910.7033014954918,
+            "y": 311.9094088847593
+          }
+        },
+        "type": "13",
+        "_temp": {
+          "bounds": {
+            "x": -1090.7033014954918,
+            "y": 311.9094088847593,
+            "width": 360,
+            "height": 112
+          }
+        }
+      }
+    ],
+    "edges": [
+      {
+        "sourceNodeID": "100001",
+        "sourcePortID": "",
+        "targetNodeID": "155601"
+      },
+      {
+        "sourceNodeID": "100001",
+        "sourcePortID": "",
+        "targetNodeID": "176894"
+      },
+      {
+        "sourceNodeID": "147008",
+        "sourcePortID": "",
+        "targetNodeID": "900001"
+      },
+      {
+        "sourceNodeID": "133141",
+        "sourcePortID": "",
+        "targetNodeID": "189514"
+      },
+      {
+        "sourceNodeID": "189514",
+        "sourcePortID": "",
+        "targetNodeID": "132832"
+      },
+      {
+        "sourceNodeID": "132832",
+        "sourcePortID": "",
+        "targetNodeID": "176209"
+      },
+      {
+        "sourceNodeID": "176209",
+        "sourcePortID": "",
+        "targetNodeID": "174317"
+      },
+      {
+        "sourceNodeID": "174317",
+        "sourcePortID": "",
+        "targetNodeID": "151818"
+      },
+      {
+        "sourceNodeID": "151818",
+        "sourcePortID": "",
+        "targetNodeID": "185473"
+      },
+      {
+        "sourceNodeID": "185473",
+        "sourcePortID": "",
+        "targetNodeID": "173677"
+      },
+      {
+        "sourceNodeID": "173677",
+        "sourcePortID": "",
+        "targetNodeID": "114244"
+      },
+      {
+        "sourceNodeID": "114244",
+        "sourcePortID": "",
+        "targetNodeID": "147008"
+      },
+      {
+        "sourceNodeID": "155601",
+        "sourcePortID": "true",
+        "targetNodeID": "133141"
+      },
+      {
+        "sourceNodeID": "182810",
+        "sourcePortID": "",
+        "targetNodeID": "147008"
+      },
+      {
+        "sourceNodeID": "191583",
+        "sourcePortID": "",
+        "targetNodeID": "147008"
+      },
+      {
+        "sourceNodeID": "1783973",
+        "sourcePortID": "",
+        "targetNodeID": "147008"
+      },
+      {
+        "sourceNodeID": "155601",
+        "sourcePortID": "false",
+        "targetNodeID": "191583"
+      },
+      {
+        "sourceNodeID": "176894",
+        "sourcePortID": "true",
+        "targetNodeID": "1085640"
+      },
+      {
+        "sourceNodeID": "176894",
+        "sourcePortID": "false",
+        "targetNodeID": "1783973"
+      },
+      {
+        "sourceNodeID": "1085640",
+        "sourcePortID": "",
+        "targetNodeID": "182810"
+      }
+    ]
+  },
+  "bounds": {
+    "x": -2632.329525655801,
+    "y": -332.0760755514259,
+    "width": 6144.708150600177,
+    "height": 755.9854844361852
+  }
+}
